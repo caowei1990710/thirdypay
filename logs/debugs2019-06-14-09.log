@@ -1,0 +1,380 @@
+2019-06-14 09:00:41.828 [INFO ] ThridypayApplication  Starting ThridypayApplication on LAPTOP-K8L84O8O with PID 218216 (D:\thridypay\target\classes started by snsoft in D:\thridypay)
+2019-06-14 09:00:41.833 [INFO ] ThridypayApplication  No active profile set, falling back to default profiles: default
+2019-06-14 09:00:43.305 [INFO ] RepositoryConfigurationDelegate  Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-14 09:00:43.311 [INFO ] RepositoryConfigurationDelegate  Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-14 09:00:43.362 [INFO ] RepositoryConfigurationDelegate  Finished Spring Data repository scanning in 27ms. Found 0 repository interfaces.
+2019-06-14 09:00:44.951 [INFO ] TomcatWebServer  Tomcat initialized with port(s): 8081 (http)
+2019-06-14 09:00:44.983 [INFO ] Http11NioProtocol  Initializing ProtocolHandler ["http-nio-8081"]
+2019-06-14 09:00:45.004 [INFO ] StandardService  Starting service [Tomcat]
+2019-06-14 09:00:45.004 [INFO ] StandardEngine  Starting Servlet engine: [Apache Tomcat/9.0.19]
+2019-06-14 09:00:45.255 [INFO ] [/]  Initializing Spring embedded WebApplicationContext
+2019-06-14 09:00:45.256 [INFO ] ContextLoader  Root WebApplicationContext: initialization completed in 3350 ms
+2019-06-14 09:00:45.659 [INFO ] ThreadPoolTaskExecutor  Initializing ExecutorService 'applicationTaskExecutor'
+2019-06-14 09:00:46.150 [WARN ] RedisStarterDeprecationWarningAutoConfiguration  spring-boot-starter-redis is deprecated as of Spring Boot 1.4, please migrate to spring-boot-starter-data-redis
+2019-06-14 09:00:46.342 [INFO ] Http11NioProtocol  Starting ProtocolHandler ["http-nio-8081"]
+2019-06-14 09:00:46.458 [INFO ] TomcatWebServer  Tomcat started on port(s): 8081 (http) with context path ''
+2019-06-14 09:00:46.462 [INFO ] ThridypayApplication  Started ThridypayApplication in 5.396 seconds (JVM running for 6.779)
+2019-06-14 09:01:02.554 [INFO ] [/]  Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-06-14 09:01:02.554 [INFO ] DispatcherServlet  Initializing Servlet 'dispatcherServlet'
+2019-06-14 09:01:02.564 [INFO ] DispatcherServlet  Completed initialization in 10 ms
+2019-06-14 09:03:19.242 [INFO ] ThridypayApplication  Starting ThridypayApplication on LAPTOP-K8L84O8O with PID 219972 (D:\thridypay\target\classes started by snsoft in D:\thridypay)
+2019-06-14 09:03:19.250 [INFO ] ThridypayApplication  No active profile set, falling back to default profiles: default
+2019-06-14 09:03:20.544 [INFO ] RepositoryConfigurationDelegate  Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-14 09:03:20.548 [INFO ] RepositoryConfigurationDelegate  Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-14 09:03:20.613 [INFO ] RepositoryConfigurationDelegate  Finished Spring Data repository scanning in 35ms. Found 0 repository interfaces.
+2019-06-14 09:03:21.903 [INFO ] TomcatWebServer  Tomcat initialized with port(s): 8081 (http)
+2019-06-14 09:03:21.923 [INFO ] Http11NioProtocol  Initializing ProtocolHandler ["http-nio-8081"]
+2019-06-14 09:03:21.935 [INFO ] StandardService  Starting service [Tomcat]
+2019-06-14 09:03:21.935 [INFO ] StandardEngine  Starting Servlet engine: [Apache Tomcat/9.0.19]
+2019-06-14 09:03:22.071 [INFO ] [/]  Initializing Spring embedded WebApplicationContext
+2019-06-14 09:03:22.072 [INFO ] ContextLoader  Root WebApplicationContext: initialization completed in 2766 ms
+2019-06-14 09:03:22.326 [INFO ] ThreadPoolTaskExecutor  Initializing ExecutorService 'applicationTaskExecutor'
+2019-06-14 09:03:22.770 [WARN ] RedisStarterDeprecationWarningAutoConfiguration  spring-boot-starter-redis is deprecated as of Spring Boot 1.4, please migrate to spring-boot-starter-data-redis
+2019-06-14 09:03:22.819 [INFO ] Http11NioProtocol  Starting ProtocolHandler ["http-nio-8081"]
+2019-06-14 09:03:22.910 [INFO ] TomcatWebServer  Tomcat started on port(s): 8081 (http) with context path ''
+2019-06-14 09:03:22.923 [INFO ] ThridypayApplication  Started ThridypayApplication in 4.397 seconds (JVM running for 5.683)
+2019-06-14 09:03:27.850 [INFO ] [/]  Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-06-14 09:03:27.851 [INFO ] DispatcherServlet  Initializing Servlet 'dispatcherServlet'
+2019-06-14 09:03:27.859 [INFO ] DispatcherServlet  Completed initialization in 8 ms
+2019-06-14 09:09:22.512 [INFO ] ThridypayApplication  Starting ThridypayApplication on LAPTOP-K8L84O8O with PID 217260 (D:\thridypay\target\classes started by snsoft in D:\thridypay)
+2019-06-14 09:09:22.516 [INFO ] ThridypayApplication  No active profile set, falling back to default profiles: default
+2019-06-14 09:09:24.046 [INFO ] RepositoryConfigurationDelegate  Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-14 09:09:24.049 [INFO ] RepositoryConfigurationDelegate  Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-14 09:09:24.090 [INFO ] RepositoryConfigurationDelegate  Finished Spring Data repository scanning in 23ms. Found 0 repository interfaces.
+2019-06-14 09:09:25.419 [INFO ] TomcatWebServer  Tomcat initialized with port(s): 8081 (http)
+2019-06-14 09:09:25.441 [INFO ] Http11NioProtocol  Initializing ProtocolHandler ["http-nio-8081"]
+2019-06-14 09:09:25.452 [INFO ] StandardService  Starting service [Tomcat]
+2019-06-14 09:09:25.453 [INFO ] StandardEngine  Starting Servlet engine: [Apache Tomcat/9.0.19]
+2019-06-14 09:09:25.683 [INFO ] [/]  Initializing Spring embedded WebApplicationContext
+2019-06-14 09:09:25.684 [INFO ] ContextLoader  Root WebApplicationContext: initialization completed in 3048 ms
+2019-06-14 09:09:26.037 [INFO ] ThreadPoolTaskExecutor  Initializing ExecutorService 'applicationTaskExecutor'
+2019-06-14 09:09:26.346 [INFO ] ThreadPoolTaskScheduler  Initializing ExecutorService 'taskScheduler'
+2019-06-14 09:09:26.362 [WARN ] RedisStarterDeprecationWarningAutoConfiguration  spring-boot-starter-redis is deprecated as of Spring Boot 1.4, please migrate to spring-boot-starter-data-redis
+2019-06-14 09:09:26.421 [INFO ] Http11NioProtocol  Starting ProtocolHandler ["http-nio-8081"]
+2019-06-14 09:09:26.472 [INFO ] TomcatWebServer  Tomcat started on port(s): 8081 (http) with context path ''
+2019-06-14 09:09:26.475 [INFO ] ThridypayApplication  Started ThridypayApplication in 4.779 seconds (JVM running for 5.898)
+2019-06-14 09:09:40.060 [INFO ] [/]  Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-06-14 09:09:40.060 [INFO ] DispatcherServlet  Initializing Servlet 'dispatcherServlet'
+2019-06-14 09:09:40.070 [INFO ] DispatcherServlet  Completed initialization in 10 ms
+2019-06-14 09:14:23.190 [INFO ] ThridypayApplication  Starting ThridypayApplication on LAPTOP-K8L84O8O with PID 222308 (D:\thridypay\target\classes started by snsoft in D:\thridypay)
+2019-06-14 09:14:23.193 [INFO ] ThridypayApplication  No active profile set, falling back to default profiles: default
+2019-06-14 09:14:24.490 [INFO ] RepositoryConfigurationDelegate  Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-14 09:14:24.493 [INFO ] RepositoryConfigurationDelegate  Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-14 09:14:24.535 [INFO ] RepositoryConfigurationDelegate  Finished Spring Data repository scanning in 22ms. Found 0 repository interfaces.
+2019-06-14 09:14:25.699 [INFO ] TomcatWebServer  Tomcat initialized with port(s): 8081 (http)
+2019-06-14 09:14:25.716 [INFO ] Http11NioProtocol  Initializing ProtocolHandler ["http-nio-8081"]
+2019-06-14 09:14:25.730 [INFO ] StandardService  Starting service [Tomcat]
+2019-06-14 09:14:25.730 [INFO ] StandardEngine  Starting Servlet engine: [Apache Tomcat/9.0.19]
+2019-06-14 09:14:25.883 [INFO ] [/]  Initializing Spring embedded WebApplicationContext
+2019-06-14 09:14:25.883 [INFO ] ContextLoader  Root WebApplicationContext: initialization completed in 2631 ms
+2019-06-14 09:14:26.191 [INFO ] ThreadPoolTaskExecutor  Initializing ExecutorService 'applicationTaskExecutor'
+2019-06-14 09:14:26.318 [WARN ] ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration  Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2019-06-14 09:14:26.621 [INFO ] ThreadPoolTaskScheduler  Initializing ExecutorService 'taskScheduler'
+2019-06-14 09:14:26.663 [WARN ] RedisStarterDeprecationWarningAutoConfiguration  spring-boot-starter-redis is deprecated as of Spring Boot 1.4, please migrate to spring-boot-starter-data-redis
+2019-06-14 09:14:26.691 [INFO ] Http11NioProtocol  Starting ProtocolHandler ["http-nio-8081"]
+2019-06-14 09:14:26.748 [INFO ] TomcatWebServer  Tomcat started on port(s): 8081 (http) with context path ''
+2019-06-14 09:14:26.752 [INFO ] ThridypayApplication  Started ThridypayApplication in 4.248 seconds (JVM running for 5.793)
+2019-06-14 09:16:19.335 [INFO ] [/]  Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-06-14 09:16:19.335 [INFO ] DispatcherServlet  Initializing Servlet 'dispatcherServlet'
+2019-06-14 09:16:19.348 [INFO ] DispatcherServlet  Completed initialization in 13 ms
+2019-06-14 09:17:52.392 [INFO ] ThridypayApplication  Starting ThridypayApplication on LAPTOP-K8L84O8O with PID 222432 (D:\thridypay\target\classes started by snsoft in D:\thridypay)
+2019-06-14 09:17:52.402 [INFO ] ThridypayApplication  No active profile set, falling back to default profiles: default
+2019-06-14 09:17:53.991 [INFO ] RepositoryConfigurationDelegate  Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-14 09:17:54.000 [INFO ] RepositoryConfigurationDelegate  Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-14 09:17:54.089 [INFO ] RepositoryConfigurationDelegate  Finished Spring Data repository scanning in 26ms. Found 0 repository interfaces.
+2019-06-14 09:17:55.483 [INFO ] TomcatWebServer  Tomcat initialized with port(s): 8081 (http)
+2019-06-14 09:17:55.507 [INFO ] Http11NioProtocol  Initializing ProtocolHandler ["http-nio-8081"]
+2019-06-14 09:17:55.521 [INFO ] StandardService  Starting service [Tomcat]
+2019-06-14 09:17:55.521 [INFO ] StandardEngine  Starting Servlet engine: [Apache Tomcat/9.0.19]
+2019-06-14 09:17:55.691 [INFO ] [/]  Initializing Spring embedded WebApplicationContext
+2019-06-14 09:17:55.692 [INFO ] ContextLoader  Root WebApplicationContext: initialization completed in 3121 ms
+2019-06-14 09:17:56.041 [INFO ] ThreadPoolTaskExecutor  Initializing ExecutorService 'applicationTaskExecutor'
+2019-06-14 09:17:56.173 [WARN ] ThymeleafAutoConfiguration$DefaultTemplateResolverConfiguration  Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2019-06-14 09:17:56.491 [INFO ] ThreadPoolTaskScheduler  Initializing ExecutorService 'taskScheduler'
+2019-06-14 09:17:56.514 [WARN ] RedisStarterDeprecationWarningAutoConfiguration  spring-boot-starter-redis is deprecated as of Spring Boot 1.4, please migrate to spring-boot-starter-data-redis
+2019-06-14 09:17:56.549 [INFO ] Http11NioProtocol  Starting ProtocolHandler ["http-nio-8081"]
+2019-06-14 09:17:56.612 [INFO ] TomcatWebServer  Tomcat started on port(s): 8081 (http) with context path ''
+2019-06-14 09:17:56.616 [INFO ] ThridypayApplication  Started ThridypayApplication in 5.175 seconds (JVM running for 7.091)
+2019-06-14 09:18:21.480 [INFO ] [/]  Initializing Spring DispatcherServlet 'dispatcherServlet'
+2019-06-14 09:18:21.480 [INFO ] DispatcherServlet  Initializing Servlet 'dispatcherServlet'
+2019-06-14 09:18:21.490 [INFO ] DispatcherServlet  Completed initialization in 10 ms
+2019-06-14 09:49:49.708 [INFO ] ThridypayApplication  Starting ThridypayApplication on LAPTOP-K8L84O8O with PID 230624 (D:\thridypay\target\classes started by snsoft in D:\thridypay)
+2019-06-14 09:49:49.715 [INFO ] ThridypayApplication  No active profile set, falling back to default profiles: default
+2019-06-14 09:49:51.478 [INFO ] RepositoryConfigurationDelegate  Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-14 09:49:51.479 [INFO ] RepositoryConfigurationDelegate  Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-14 09:49:51.622 [INFO ] RepositoryConfigurationDelegate  Finished Spring Data repository scanning in 127ms. Found 2 repository interfaces.
+2019-06-14 09:49:51.641 [INFO ] RepositoryConfigurationDelegate  Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-14 09:49:51.642 [INFO ] RepositoryConfigurationDelegate  Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-14 09:49:51.665 [INFO ] RepositoryConfigurationExtensionSupport  Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.demo.Repository.MerchatListRespository.
+2019-06-14 09:49:51.666 [INFO ] RepositoryConfigurationExtensionSupport  Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.demo.Repository.proposalListRespoitory.
+2019-06-14 09:49:51.668 [INFO ] RepositoryConfigurationDelegate  Finished Spring Data repository scanning in 12ms. Found 0 repository interfaces.
+2019-06-14 09:49:52.165 [INFO ] PostProcessorRegistrationDelegate$BeanPostProcessorChecker  Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$a7db455c] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-14 09:49:52.889 [INFO ] TomcatWebServer  Tomcat initialized with port(s): 8081 (http)
+2019-06-14 09:49:52.909 [INFO ] Http11NioProtocol  Initializing ProtocolHandler ["http-nio-8081"]
+2019-06-14 09:49:52.924 [INFO ] StandardService  Starting service [Tomcat]
+2019-06-14 09:49:52.924 [INFO ] StandardEngine  Starting Servlet engine: [Apache Tomcat/9.0.19]
+2019-06-14 09:49:53.144 [INFO ] [/]  Initializing Spring embedded WebApplicationContext
+2019-06-14 09:49:53.144 [INFO ] ContextLoader  Root WebApplicationContext: initialization completed in 3314 ms
+2019-06-14 09:49:53.368 [INFO ] HikariDataSource  HikariPool-1 - Starting...
+2019-06-14 09:49:53.370 [WARN ] DriverDataSource  Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2019-06-14 09:49:53.834 [INFO ] HikariDataSource  HikariPool-1 - Start completed.
+2019-06-14 09:49:54.003 [INFO ] LogHelper  HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-06-14 09:49:54.116 [INFO ] Version  HHH000412: Hibernate Core {5.3.10.Final}
+2019-06-14 09:49:54.118 [INFO ] Environment  HHH000206: hibernate.properties not found
+2019-06-14 09:49:54.454 [INFO ] Version  HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-06-14 09:49:54.663 [INFO ] Dialect  HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2019-06-14 09:49:54.835 [WARN ] AnnotationConfigServletWebServerApplicationContext  Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: No identifier specified for entity: com.example.demo.Model.MerchatList
+2019-06-14 09:49:54.835 [INFO ] HikariDataSource  HikariPool-1 - Shutdown initiated...
+2019-06-14 09:49:54.909 [INFO ] HikariDataSource  HikariPool-1 - Shutdown completed.
+2019-06-14 09:49:54.914 [INFO ] StandardService  Stopping service [Tomcat]
+2019-06-14 09:49:54.933 [INFO ] ConditionEvaluationReportLoggingListener  
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-06-14 09:49:54.955 [ERROR] SpringApplication  Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: No identifier specified for entity: com.example.demo.Model.MerchatList
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1778)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1105)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248)
+	at com.example.demo.ThridypayApplication.main(ThridypayApplication.java:14)
+Caused by: org.hibernate.AnnotationException: No identifier specified for entity: com.example.demo.Model.MerchatList
+	at org.hibernate.cfg.InheritanceState.determineDefaultAccessType(InheritanceState.java:266)
+	at org.hibernate.cfg.InheritanceState.getElementsToProcess(InheritanceState.java:211)
+	at org.hibernate.cfg.AnnotationBinder.bindClass(AnnotationBinder.java:775)
+	at org.hibernate.boot.model.source.internal.annotations.AnnotationMetadataSourceProcessorImpl.processEntityHierarchies(AnnotationMetadataSourceProcessorImpl.java:250)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess$1.processEntityHierarchies(MetadataBuildingProcess.java:231)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:274)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:904)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:935)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:57)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:377)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1837)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1774)
+	... 16 common frames omitted
+2019-06-14 09:55:02.818 [INFO ] ThridypayApplication  Starting ThridypayApplication on LAPTOP-K8L84O8O with PID 227148 (D:\thridypay\target\classes started by snsoft in D:\thridypay)
+2019-06-14 09:55:02.822 [INFO ] ThridypayApplication  No active profile set, falling back to default profiles: default
+2019-06-14 09:55:04.521 [INFO ] RepositoryConfigurationDelegate  Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-14 09:55:04.522 [INFO ] RepositoryConfigurationDelegate  Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-14 09:55:04.651 [INFO ] RepositoryConfigurationDelegate  Finished Spring Data repository scanning in 116ms. Found 2 repository interfaces.
+2019-06-14 09:55:04.673 [INFO ] RepositoryConfigurationDelegate  Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-14 09:55:04.674 [INFO ] RepositoryConfigurationDelegate  Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-14 09:55:04.695 [INFO ] RepositoryConfigurationExtensionSupport  Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.demo.Repository.MerchatListRespository.
+2019-06-14 09:55:04.695 [INFO ] RepositoryConfigurationExtensionSupport  Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.demo.Repository.proposalListRespoitory.
+2019-06-14 09:55:04.696 [INFO ] RepositoryConfigurationDelegate  Finished Spring Data repository scanning in 10ms. Found 0 repository interfaces.
+2019-06-14 09:55:05.240 [INFO ] PostProcessorRegistrationDelegate$BeanPostProcessorChecker  Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$6ec011cf] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-14 09:55:06.012 [INFO ] TomcatWebServer  Tomcat initialized with port(s): 8081 (http)
+2019-06-14 09:55:06.032 [INFO ] Http11NioProtocol  Initializing ProtocolHandler ["http-nio-8081"]
+2019-06-14 09:55:06.045 [INFO ] StandardService  Starting service [Tomcat]
+2019-06-14 09:55:06.045 [INFO ] StandardEngine  Starting Servlet engine: [Apache Tomcat/9.0.19]
+2019-06-14 09:55:06.248 [INFO ] [/]  Initializing Spring embedded WebApplicationContext
+2019-06-14 09:55:06.248 [INFO ] ContextLoader  Root WebApplicationContext: initialization completed in 3358 ms
+2019-06-14 09:55:06.461 [INFO ] HikariDataSource  HikariPool-1 - Starting...
+2019-06-14 09:55:06.463 [WARN ] DriverDataSource  Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2019-06-14 09:55:06.821 [INFO ] HikariDataSource  HikariPool-1 - Start completed.
+2019-06-14 09:55:06.963 [INFO ] LogHelper  HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-06-14 09:55:07.081 [INFO ] Version  HHH000412: Hibernate Core {5.3.10.Final}
+2019-06-14 09:55:07.083 [INFO ] Environment  HHH000206: hibernate.properties not found
+2019-06-14 09:55:07.252 [INFO ] Version  HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-06-14 09:55:07.440 [INFO ] Dialect  HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2019-06-14 09:55:09.462 [INFO ] LocalContainerEntityManagerFactoryBean  Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-06-14 09:55:09.967 [WARN ] AnnotationConfigServletWebServerApplicationContext  Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerAdapter' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter]: Factory method 'requestMappingHandlerAdapter' threw exception; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mvcConversionService' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.format.support.FormattingConversionService]: Factory method 'mvcConversionService' threw exception; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'proposalListRespoitory': Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Not a managed type: class com.example.demo.Model.proposalList
+2019-06-14 09:55:09.968 [INFO ] LocalContainerEntityManagerFactoryBean  Closing JPA EntityManagerFactory for persistence unit 'default'
+2019-06-14 09:55:09.971 [INFO ] HikariDataSource  HikariPool-1 - Shutdown initiated...
+2019-06-14 09:55:10.007 [INFO ] HikariDataSource  HikariPool-1 - Shutdown completed.
+2019-06-14 09:55:10.010 [INFO ] StandardService  Stopping service [Tomcat]
+2019-06-14 09:55:10.026 [INFO ] ConditionEvaluationReportLoggingListener  
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-06-14 09:55:10.039 [ERROR] SpringApplication  Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerAdapter' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter]: Factory method 'requestMappingHandlerAdapter' threw exception; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mvcConversionService' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.format.support.FormattingConversionService]: Factory method 'mvcConversionService' threw exception; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'proposalListRespoitory': Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Not a managed type: class com.example.demo.Model.proposalList
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:627)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:607)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1321)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1160)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:843)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:877)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248)
+	at com.example.demo.ThridypayApplication.main(ThridypayApplication.java:14)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter]: Factory method 'requestMappingHandlerAdapter' threw exception; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mvcConversionService' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.format.support.FormattingConversionService]: Factory method 'mvcConversionService' threw exception; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'proposalListRespoitory': Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Not a managed type: class com.example.demo.Model.proposalList
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:622)
+	... 19 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'mvcConversionService' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.format.support.FormattingConversionService]: Factory method 'mvcConversionService' threw exception; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'proposalListRespoitory': Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Not a managed type: class com.example.demo.Model.proposalList
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:627)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:607)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1321)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1160)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:555)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.resolveBeanReference(ConfigurationClassEnhancer.java:394)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:366)
+	at org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration$EnableWebMvcConfiguration$$EnhancerBySpringCGLIB$$d9ad624f.mvcConversionService(<generated>)
+	at org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport.getConfigurableWebBindingInitializer(WebMvcConfigurationSupport.java:602)
+	at org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration$EnableWebMvcConfiguration.getConfigurableWebBindingInitializer(WebMvcAutoConfiguration.java:541)
+	at org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport.requestMappingHandlerAdapter(WebMvcConfigurationSupport.java:564)
+	at org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration$EnableWebMvcConfiguration.requestMappingHandlerAdapter(WebMvcAutoConfiguration.java:484)
+	at org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration$EnableWebMvcConfiguration$$EnhancerBySpringCGLIB$$d9ad624f.CGLIB$requestMappingHandlerAdapter$6(<generated>)
+	at org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration$EnableWebMvcConfiguration$$EnhancerBySpringCGLIB$$d9ad624f$$FastClassBySpringCGLIB$$19280484.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:363)
+	at org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration$EnableWebMvcConfiguration$$EnhancerBySpringCGLIB$$d9ad624f.requestMappingHandlerAdapter(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	... 20 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.format.support.FormattingConversionService]: Factory method 'mvcConversionService' threw exception; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'proposalListRespoitory': Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Not a managed type: class com.example.demo.Model.proposalList
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:622)
+	... 46 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'proposalListRespoitory': Invocation of init method failed; nested exception is java.lang.IllegalArgumentException: Not a managed type: class com.example.demo.Model.proposalList
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1778)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:204)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1111)
+	at org.springframework.data.repository.support.Repositories.cacheRepositoryFactory(Repositories.java:97)
+	at org.springframework.data.repository.support.Repositories.populateRepositoryFactoryInformation(Repositories.java:90)
+	at org.springframework.data.repository.support.Repositories.<init>(Repositories.java:83)
+	at org.springframework.data.repository.support.DomainClassConverter.setApplicationContext(DomainClassConverter.java:109)
+	at org.springframework.data.web.config.SpringDataWebConfiguration.addFormatters(SpringDataWebConfiguration.java:131)
+	at org.springframework.web.servlet.config.annotation.WebMvcConfigurerComposite.addFormatters(WebMvcConfigurerComposite.java:81)
+	at org.springframework.web.servlet.config.annotation.DelegatingWebMvcConfiguration.addFormatters(DelegatingWebMvcConfiguration.java:78)
+	at org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration$EnableWebMvcConfiguration.mvcConversionService(WebMvcAutoConfiguration.java:512)
+	at org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration$EnableWebMvcConfiguration$$EnhancerBySpringCGLIB$$d9ad624f.CGLIB$mvcConversionService$1(<generated>)
+	at org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration$EnableWebMvcConfiguration$$EnhancerBySpringCGLIB$$d9ad624f$$FastClassBySpringCGLIB$$19280484.invoke(<generated>)
+	at org.springframework.cglib.proxy.MethodProxy.invokeSuper(MethodProxy.java:244)
+	at org.springframework.context.annotation.ConfigurationClassEnhancer$BeanMethodInterceptor.intercept(ConfigurationClassEnhancer.java:363)
+	at org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration$EnableWebMvcConfiguration$$EnhancerBySpringCGLIB$$d9ad624f.mvcConversionService(<generated>)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154)
+	... 47 common frames omitted
+Caused by: java.lang.IllegalArgumentException: Not a managed type: class com.example.demo.Model.proposalList
+	at org.hibernate.metamodel.internal.MetamodelImpl.managedType(MetamodelImpl.java:552)
+	at org.springframework.data.jpa.repository.support.JpaMetamodelEntityInformation.<init>(JpaMetamodelEntityInformation.java:74)
+	at org.springframework.data.jpa.repository.support.JpaEntityInformationSupport.getEntityInformation(JpaEntityInformationSupport.java:66)
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactory.getEntityInformation(JpaRepositoryFactory.java:201)
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactory.getTargetRepository(JpaRepositoryFactory.java:151)
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactory.getTargetRepository(JpaRepositoryFactory.java:134)
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactory.getTargetRepository(JpaRepositoryFactory.java:65)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:305)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.lambda$afterPropertiesSet$5(RepositoryFactoryBeanSupport.java:297)
+	at org.springframework.data.util.Lazy.getNullable(Lazy.java:211)
+	at org.springframework.data.util.Lazy.get(Lazy.java:94)
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:300)
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:121)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1837)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1774)
+	... 72 common frames omitted
+2019-06-14 09:59:40.241 [INFO ] ThridypayApplication  Starting ThridypayApplication on LAPTOP-K8L84O8O with PID 232992 (D:\thridypay\target\classes started by snsoft in D:\thridypay)
+2019-06-14 09:59:40.248 [INFO ] ThridypayApplication  No active profile set, falling back to default profiles: default
+2019-06-14 09:59:42.682 [INFO ] RepositoryConfigurationDelegate  Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-14 09:59:42.683 [INFO ] RepositoryConfigurationDelegate  Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-14 09:59:42.930 [INFO ] RepositoryConfigurationDelegate  Finished Spring Data repository scanning in 185ms. Found 2 repository interfaces.
+2019-06-14 09:59:42.960 [INFO ] RepositoryConfigurationDelegate  Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-14 09:59:42.963 [INFO ] RepositoryConfigurationDelegate  Bootstrapping Spring Data repositories in DEFAULT mode.
+2019-06-14 09:59:42.995 [INFO ] RepositoryConfigurationExtensionSupport  Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.demo.Repository.MerchatListRespository.
+2019-06-14 09:59:42.998 [INFO ] RepositoryConfigurationExtensionSupport  Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.demo.Repository.proposalListRespoitory.
+2019-06-14 09:59:42.998 [INFO ] RepositoryConfigurationDelegate  Finished Spring Data repository scanning in 17ms. Found 0 repository interfaces.
+2019-06-14 09:59:43.660 [INFO ] PostProcessorRegistrationDelegate$BeanPostProcessorChecker  Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$4edea684] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2019-06-14 09:59:44.852 [INFO ] TomcatWebServer  Tomcat initialized with port(s): 8081 (http)
+2019-06-14 09:59:44.878 [INFO ] Http11NioProtocol  Initializing ProtocolHandler ["http-nio-8081"]
+2019-06-14 09:59:44.894 [INFO ] StandardService  Starting service [Tomcat]
+2019-06-14 09:59:44.894 [INFO ] StandardEngine  Starting Servlet engine: [Apache Tomcat/9.0.19]
+2019-06-14 09:59:45.143 [INFO ] [/]  Initializing Spring embedded WebApplicationContext
+2019-06-14 09:59:45.143 [INFO ] ContextLoader  Root WebApplicationContext: initialization completed in 4750 ms
+2019-06-14 09:59:45.359 [INFO ] HikariDataSource  HikariPool-1 - Starting...
+2019-06-14 09:59:45.361 [WARN ] DriverDataSource  Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2019-06-14 09:59:45.703 [INFO ] HikariDataSource  HikariPool-1 - Start completed.
+2019-06-14 09:59:45.855 [INFO ] LogHelper  HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-06-14 09:59:45.966 [INFO ] Version  HHH000412: Hibernate Core {5.3.10.Final}
+2019-06-14 09:59:45.968 [INFO ] Environment  HHH000206: hibernate.properties not found
+2019-06-14 09:59:46.186 [INFO ] Version  HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2019-06-14 09:59:46.404 [INFO ] Dialect  HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2019-06-14 09:59:46.676 [WARN ] AnnotationConfigServletWebServerApplicationContext  Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: No identifier specified for entity: com.example.demo.Model.proposalList
+2019-06-14 09:59:46.677 [INFO ] HikariDataSource  HikariPool-1 - Shutdown initiated...
+2019-06-14 09:59:46.749 [INFO ] HikariDataSource  HikariPool-1 - Shutdown completed.
+2019-06-14 09:59:46.755 [INFO ] StandardService  Stopping service [Tomcat]
+2019-06-14 09:59:46.775 [INFO ] ConditionEvaluationReportLoggingListener  
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2019-06-14 09:59:46.790 [ERROR] SpringApplication  Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.AnnotationException: No identifier specified for entity: com.example.demo.Model.proposalList
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1778)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:593)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:515)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:320)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:318)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1105)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:867)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:549)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:142)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:775)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:316)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1260)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1248)
+	at com.example.demo.ThridypayApplication.main(ThridypayApplication.java:14)
+Caused by: org.hibernate.AnnotationException: No identifier specified for entity: com.example.demo.Model.proposalList
+	at org.hibernate.cfg.InheritanceState.determineDefaultAccessType(InheritanceState.java:266)
+	at org.hibernate.cfg.InheritanceState.getElementsToProcess(InheritanceState.java:211)
+	at org.hibernate.cfg.AnnotationBinder.bindClass(AnnotationBinder.java:775)
+	at org.hibernate.boot.model.source.internal.annotations.AnnotationMetadataSourceProcessorImpl.processEntityHierarchies(AnnotationMetadataSourceProcessorImpl.java:250)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess$1.processEntityHierarchies(MetadataBuildingProcess.java:231)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:274)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.metadata(EntityManagerFactoryBuilderImpl.java:904)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:935)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:57)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:390)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:377)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1837)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1774)
+	... 16 common frames omitted

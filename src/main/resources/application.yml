@@ -1,0 +1,27 @@
+server:
+  port: 8081
+
+spring:
+ session:
+   store-type: none
+
+ datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://47.52.77.234:3306/shunfudb?useUnicode=true&characterEncoding=UTF-8
+    username: shunfu
+    password: colin123!@#
+ jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+ redis:
+      host: 127.0.0.1
+      port: 6379
+      password:
+      timeout: 5000
+      pool:
+        max-idle: 8
+        min-idle: 0
+        max-active: 8
+        max-wait: -1
