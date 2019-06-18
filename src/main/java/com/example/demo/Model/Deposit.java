@@ -33,6 +33,7 @@ public class Deposit implements Serializable {
     private String note;
     private Double amount;
     private Double tranfee;
+    @NotEmpty(message = "账号")
     private String wechatName;
     private String nickName;
     private String state;
