@@ -15,10 +15,12 @@ import org.springframework.stereotype.Service;
 public class BankcardService {
     @Autowired
     private DepositRespositpory depositRepository;
+
     public Result saveDepositList(DepositList depositList) {
         for (int i = 0; i < depositList.getDepositRecords().size(); i++) {
-            if (depositList.getDepositRecords() == null) {
+            if (depositList.getDepositRecords() != null) {
                 Deposit deposit = depositList.getDepositRecords().get(i);
+
 //                deposit.setIp(list.get(0).getIp());
 //                    if (list.get(0).getWechatId().equals("9")) {
 //                        WechatItem wechatItem = wechatitemRepository.findbyName(deposit.getWechatName(), deposit.getNote());
@@ -28,12 +30,14 @@ public class BankcardService {
 //                        wechatItem.setOverTime(new Date());
 //                        wechatitemRepository.save(wechatItem);
 //                    }
-                depositRepository.save(deposit);
+                if (depositRepository.findByDepositnumber(deposit.getDepositNumber()) == null)
+                    depositRepository.save(deposit);
             }
         }
         return ResultUtil.success("创建成功");
     }
-    public Result getDepositList(){
-        return ResultUtil.success( depositRepository.findByDepositList());
+
+    public Result getDepositList() {
+        return ResultUtil.success(depositRepository.findByDepositList());
     }
 }
