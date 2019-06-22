@@ -48,7 +48,26 @@ public class Deposit implements Serializable {
     private String callUrl;
     private String sign;
     private String platfromName;
+    private String userName;//游戏账号
     private String success;
+    private String payBankCard;//付款卡号
+
+    public String getPayBankCard() {
+        return payBankCard;
+    }
+
+    public void setPayBankCard(String payBankCard) {
+        this.payBankCard = payBankCard;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
     private static final long serialVersionUID = 7247714666080613254L;
 
     public String getSuccess() {
@@ -277,6 +296,7 @@ public class Deposit implements Serializable {
                 ", payType='" + payType + '\'' +
                 ", callUrl='" + callUrl + '\'' +
                 ", platfromName='" + platfromName + '\'' +
+                ", userName='" + userName + '\'' +
                 ", success='" + success + '\'' +
                 '}';
     }

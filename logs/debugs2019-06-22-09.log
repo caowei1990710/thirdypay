@@ -1,0 +1,90 @@
+2019-06-22 09:14:02.308 [INFO ] [/]  Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-06-22 09:14:02.313 [INFO ] DispatcherServlet  FrameworkServlet 'dispatcherServlet': initialization started
+2019-06-22 09:14:02.391 [INFO ] DispatcherServlet  FrameworkServlet 'dispatcherServlet': initialization completed in 78 ms
+2019-06-22 09:23:44.070 [INFO ] ThridypayApplication  Starting ThridypayApplication on LAPTOP-K8L84O8O with PID 155908 (D:\newgetpay\target\classes started by snsoft in D:\newgetpay)
+2019-06-22 09:23:44.075 [INFO ] ThridypayApplication  No active profile set, falling back to default profiles: default
+2019-06-22 09:23:44.633 [INFO ] Version  HV000001: Hibernate Validator 5.3.5.Final
+2019-06-22 09:23:44.867 [INFO ] AnnotationConfigEmbeddedWebApplicationContext  Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@294425a7: startup date [Sat Jun 22 09:23:44 SGT 2019]; root of context hierarchy
+2019-06-22 09:23:46.493 [INFO ] RepositoryConfigurationDelegate  Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-22 09:23:46.569 [INFO ] RepositoryConfigurationDelegate  Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-22 09:23:46.604 [INFO ] RepositoryConfigurationExtensionSupport  Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.demo.Repository.DepositRespositpory.
+2019-06-22 09:23:46.605 [INFO ] RepositoryConfigurationExtensionSupport  Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.demo.Repository.MerchatListRespository.
+2019-06-22 09:23:46.606 [INFO ] RepositoryConfigurationExtensionSupport  Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.demo.Repository.UserListRespositpory.
+2019-06-22 09:23:46.606 [INFO ] RepositoryConfigurationExtensionSupport  Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.demo.Repository.proposalListRespoitory.
+2019-06-22 09:23:48.360 [INFO ] TomcatEmbeddedServletContainer  Tomcat initialized with port(s): 8081 (http)
+2019-06-22 09:23:48.377 [INFO ] StandardService  Starting service [Tomcat]
+2019-06-22 09:23:48.378 [INFO ] StandardEngine  Starting Servlet Engine: Apache Tomcat/8.5.15
+2019-06-22 09:23:48.610 [INFO ] [/]  Initializing Spring embedded WebApplicationContext
+2019-06-22 09:23:48.610 [INFO ] ContextLoader  Root WebApplicationContext: initialization completed in 3743 ms
+2019-06-22 09:23:49.015 [INFO ] ServletRegistrationBean  Mapping servlet: 'dispatcherServlet' to [/]
+2019-06-22 09:23:49.028 [INFO ] FilterRegistrationBean  Mapping filter: 'metricsFilter' to: [/*]
+2019-06-22 09:23:49.029 [INFO ] FilterRegistrationBean  Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-06-22 09:23:49.030 [INFO ] FilterRegistrationBean  Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-06-22 09:23:49.031 [INFO ] FilterRegistrationBean  Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-06-22 09:23:49.032 [INFO ] FilterRegistrationBean  Mapping filter: 'requestContextFilter' to: [/*]
+2019-06-22 09:23:49.032 [INFO ] FilterRegistrationBean  Mapping filter: 'webRequestLoggingFilter' to: [/*]
+2019-06-22 09:23:49.037 [INFO ] FilterRegistrationBean  Mapping filter: 'applicationContextIdFilter' to: [/*]
+2019-06-22 09:23:51.918 [INFO ] LocalContainerEntityManagerFactoryBean  Building JPA container EntityManagerFactory for persistence unit 'default'
+2019-06-22 09:23:51.934 [INFO ] LogHelper  HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-06-22 09:23:52.151 [INFO ] Version  HHH000412: Hibernate Core {5.0.12.Final}
+2019-06-22 09:23:52.153 [INFO ] Environment  HHH000206: hibernate.properties not found
+2019-06-22 09:23:52.155 [INFO ] Environment  HHH000021: Bytecode provider name : javassist
+2019-06-22 09:23:52.263 [INFO ] Version  HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2019-06-22 09:23:52.660 [INFO ] Dialect  HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2019-06-22 09:23:53.349 [INFO ] SchemaUpdate  HHH000228: Running hbm2ddl schema update
+2019-06-22 09:23:58.016 [INFO ] LocalContainerEntityManagerFactoryBean  Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-06-22 09:23:58.828 [INFO ] RequestMappingHandlerAdapter  Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@294425a7: startup date [Sat Jun 22 09:23:44 SGT 2019]; root of context hierarchy
+2019-06-22 09:23:58.889 [INFO ] RequestMappingHandlerMapping  Mapped "{[/depositlist],methods=[GET]}" onto public com.example.demo.Model.Result com.example.demo.Controller.DepositController.getDepositlist()
+2019-06-22 09:23:58.891 [INFO ] RequestMappingHandlerMapping  Mapped "{[/getbank],methods=[GET]}" onto public com.example.demo.Model.Result com.example.demo.Controller.DepositController.getUserList(java.lang.String)
+2019-06-22 09:23:58.891 [INFO ] RequestMappingHandlerMapping  Mapped "{[/addbank],methods=[POST]}" onto public com.example.demo.Model.Result com.example.demo.Controller.DepositController.addUserList(com.example.demo.Model.UserList)
+2019-06-22 09:23:58.891 [INFO ] RequestMappingHandlerMapping  Mapped "{[/Depositlist],methods=[POST]}" onto public com.example.demo.Model.Result com.example.demo.Controller.DepositController.addDepositlist(com.example.demo.Model.DepositList)
+2019-06-22 09:23:58.892 [INFO ] RequestMappingHandlerMapping  Mapped "{[/test]}" onto public java.lang.String com.example.demo.Controller.HttpController.forwardTest()
+2019-06-22 09:23:58.894 [INFO ] RequestMappingHandlerMapping  Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-06-22 09:23:58.894 [INFO ] RequestMappingHandlerMapping  Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-06-22 09:23:58.925 [INFO ] SimpleUrlHandlerMapping  Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-06-22 09:23:58.925 [INFO ] SimpleUrlHandlerMapping  Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-06-22 09:23:58.963 [INFO ] SimpleUrlHandlerMapping  Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-06-22 09:23:59.031 [WARN ] AbstractTemplateResolverConfiguration  Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2019-06-22 09:23:59.779 [INFO ] EndpointHandlerMapping  Mapped "{[/mappings || /mappings.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2019-06-22 09:23:59.780 [INFO ] EndpointHandlerMapping  Mapped "{[/beans || /beans.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2019-06-22 09:23:59.782 [INFO ] EndpointHandlerMapping  Mapped "{[/loggers/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.LoggersMvcEndpoint.get(java.lang.String)
+2019-06-22 09:23:59.782 [INFO ] EndpointHandlerMapping  Mapped "{[/loggers/{name:.*}],methods=[POST],consumes=[application/vnd.spring-boot.actuator.v1+json || application/json],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.LoggersMvcEndpoint.set(java.lang.String,java.util.Map<java.lang.String, java.lang.String>)
+2019-06-22 09:23:59.783 [INFO ] EndpointHandlerMapping  Mapped "{[/loggers || /loggers.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2019-06-22 09:23:59.783 [INFO ] EndpointHandlerMapping  Mapped "{[/trace || /trace.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2019-06-22 09:23:59.784 [INFO ] EndpointHandlerMapping  Mapped "{[/auditevents || /auditevents.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public org.springframework.http.ResponseEntity<?> org.springframework.boot.actuate.endpoint.mvc.AuditEventsMvcEndpoint.findByPrincipalAndAfterAndType(java.lang.String,java.util.Date,java.lang.String)
+2019-06-22 09:23:59.785 [INFO ] EndpointHandlerMapping  Mapped "{[/heapdump || /heapdump.json],methods=[GET],produces=[application/octet-stream]}" onto public void org.springframework.boot.actuate.endpoint.mvc.HeapdumpMvcEndpoint.invoke(boolean,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException,javax.servlet.ServletException
+2019-06-22 09:23:59.785 [INFO ] EndpointHandlerMapping  Mapped "{[/info || /info.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2019-06-22 09:23:59.787 [INFO ] EndpointHandlerMapping  Mapped "{[/metrics/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.MetricsMvcEndpoint.value(java.lang.String)
+2019-06-22 09:23:59.787 [INFO ] EndpointHandlerMapping  Mapped "{[/metrics || /metrics.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2019-06-22 09:23:59.788 [INFO ] EndpointHandlerMapping  Mapped "{[/health || /health.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.HealthMvcEndpoint.invoke(javax.servlet.http.HttpServletRequest,java.security.Principal)
+2019-06-22 09:23:59.788 [INFO ] EndpointHandlerMapping  Mapped "{[/configprops || /configprops.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2019-06-22 09:23:59.789 [INFO ] EndpointHandlerMapping  Mapped "{[/env/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EnvironmentMvcEndpoint.value(java.lang.String)
+2019-06-22 09:23:59.790 [INFO ] EndpointHandlerMapping  Mapped "{[/env || /env.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2019-06-22 09:23:59.791 [INFO ] EndpointHandlerMapping  Mapped "{[/autoconfig || /autoconfig.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2019-06-22 09:23:59.791 [INFO ] EndpointHandlerMapping  Mapped "{[/dump || /dump.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2019-06-22 09:24:00.110 [WARN ] RedisStarterDeprecationWarningAutoConfiguration  spring-boot-starter-redis is deprecated as of Spring Boot 1.4, please migrate to spring-boot-starter-data-redis
+2019-06-22 09:24:00.164 [INFO ] AnnotationMBeanExporter  Registering beans for JMX exposure on startup
+2019-06-22 09:24:00.170 [INFO ] EndpointMBeanExporter  Registering beans for JMX exposure on startup
+2019-06-22 09:24:00.174 [INFO ] DefaultLifecycleProcessor  Starting beans in phase 0
+2019-06-22 09:24:00.178 [INFO ] EndpointMBeanExporter  Located managed bean 'auditEventsEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=auditEventsEndpoint]
+2019-06-22 09:24:00.193 [INFO ] EndpointMBeanExporter  Located managed bean 'requestMappingEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=requestMappingEndpoint]
+2019-06-22 09:24:00.202 [INFO ] EndpointMBeanExporter  Located managed bean 'environmentEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=environmentEndpoint]
+2019-06-22 09:24:00.206 [INFO ] EndpointMBeanExporter  Located managed bean 'healthEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=healthEndpoint]
+2019-06-22 09:24:00.210 [INFO ] EndpointMBeanExporter  Located managed bean 'beansEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=beansEndpoint]
+2019-06-22 09:24:00.213 [INFO ] EndpointMBeanExporter  Located managed bean 'infoEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=infoEndpoint]
+2019-06-22 09:24:00.216 [INFO ] EndpointMBeanExporter  Located managed bean 'loggersEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=loggersEndpoint]
+2019-06-22 09:24:00.223 [INFO ] EndpointMBeanExporter  Located managed bean 'metricsEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=metricsEndpoint]
+2019-06-22 09:24:00.226 [INFO ] EndpointMBeanExporter  Located managed bean 'traceEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=traceEndpoint]
+2019-06-22 09:24:00.228 [INFO ] EndpointMBeanExporter  Located managed bean 'dumpEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=dumpEndpoint]
+2019-06-22 09:24:00.230 [INFO ] EndpointMBeanExporter  Located managed bean 'autoConfigurationReportEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=autoConfigurationReportEndpoint]
+2019-06-22 09:24:00.233 [INFO ] EndpointMBeanExporter  Located managed bean 'configurationPropertiesReportEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=configurationPropertiesReportEndpoint]
+2019-06-22 09:24:00.247 [INFO ] Http11NioProtocol  Initializing ProtocolHandler ["http-nio-8081"]
+2019-06-22 09:24:00.256 [INFO ] Http11NioProtocol  Starting ProtocolHandler ["http-nio-8081"]
+2019-06-22 09:24:00.276 [INFO ] NioSelectorPool  Using a shared selector for servlet write/read
+2019-06-22 09:24:00.311 [INFO ] TomcatEmbeddedServletContainer  Tomcat started on port(s): 8081 (http)
+2019-06-22 09:24:00.319 [INFO ] ThridypayApplication  Started ThridypayApplication in 17.004 seconds (JVM running for 18.497)
+2019-06-22 09:24:35.163 [INFO ] [/]  Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-06-22 09:24:35.163 [INFO ] DispatcherServlet  FrameworkServlet 'dispatcherServlet': initialization started
+2019-06-22 09:24:35.190 [INFO ] DispatcherServlet  FrameworkServlet 'dispatcherServlet': initialization completed in 27 ms

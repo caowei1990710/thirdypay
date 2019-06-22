@@ -1,9 +1,6 @@
 package com.example.demo.Controller;
 
-import com.example.demo.Model.Deposit;
-import com.example.demo.Model.DepositList;
-import com.example.demo.Model.Result;
-import com.example.demo.Model.ResultUtil;
+import com.example.demo.Model.*;
 import com.example.demo.Service.BankcardService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -20,6 +17,7 @@ import java.util.ArrayList;
 public class DepositController {
     @Autowired
     BankcardService bankcardService;
+
     @RequestMapping(value = "/Depositlist", method = {RequestMethod.POST})
     public Result addDepositlist(@RequestBody DepositList depositList) {
 //        try {
@@ -30,6 +28,7 @@ public class DepositController {
 //        }
 
     }
+
     @RequestMapping(value = "/depositlist", method = {RequestMethod.GET})
     public Result getDepositlist() {
 //        try {
@@ -39,5 +38,15 @@ public class DepositController {
 //            throw new GirlException("添加失败", -1);
 //        }
 
+    }
+
+    @RequestMapping(value = "/addbank", method = {RequestMethod.POST})
+    public Result addUserList(UserList userList) {
+        return bankcardService.addUserList(userList);
+    }
+
+    @RequestMapping(value = "/getbank", method = {RequestMethod.GET})
+    public Result getUserList(String userName) {
+        return bankcardService.getUserList(userName);
     }
 }
