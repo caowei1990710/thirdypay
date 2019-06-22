@@ -16,4 +16,7 @@ public interface DepositRespositpory  extends JpaRepository<Deposit,Integer>,Jpa
 
     @Query(value = "select * from deposit where to_days(creat_time) = to_days(now()) ORDER by id desc limit 1000", nativeQuery = true)
     List<Deposit> findByDepositList();
+
+    @Query(value = "select * from deposit", nativeQuery = true)
+    List<Deposit> getByDepositList();
 }

@@ -1,27 +1,39 @@
 server:
-  port: 8081
+  port:
 
 spring:
  session:
    store-type: none
 
  datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://47.52.77.234:3306/shunfudb?useUnicode=true&characterEncoding=UTF-8
-    username: shunfu
-    password: colin123!@#
+#    driver-class-name: com.mysql.jdbc.Driver
+#    url: jdbc:mysql://47.52.77.234:3306/shunfudb?useUnicode=true&characterEncoding=UTF-8
+#    username: shunfu
+#    password: colin123!@#
+
+#   mysql 8.0的配置
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/shunfudb?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
+    username: root
+    password: vergil123
+
  jpa:
     show-sql: false
     hibernate:
       ddl-auto: update
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
- redis:
-      host: 127.0.0.1
-      port: 6379
-      password:
-      timeout: 5000
-      pool:
-        max-idle: 8
-        min-idle: 0
-        max-active: 8
-        max-wait: -1
+# redis:
+#      host: 127.0.0.1
+#      port: 6379
+#      password:
+#      timeout: 5000
+#      pool:
+#        max-idle: 8
+#        min-idle: 0
+#        max-active: 8
+#        max-wait: -1
+
+
+logging:
+  level:
+    com.example.demo.dao : debug
