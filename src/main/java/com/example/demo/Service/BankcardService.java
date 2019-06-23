@@ -75,11 +75,11 @@ public class BankcardService {
 
     public Result addUserList(UserList userList) {
         //userListRespositpory
-        List<UserList> itemuser = userListRespositpory.findByBankCard(userList.getBankCard());
+        List<UserList> itemuser = userListRespositpory.findByRealName(userList.getBankCard());
         if (itemuser.size() == 0)
             return ResultUtil.success(userListRespositpory.save(userList));
         else
-            return ResultUtil.error(401, "卡号已绑定");
+            return ResultUtil.error(401, "名字已经已绑定");
     }
 
     public Result getUserList(String userName) {
@@ -120,6 +120,22 @@ public class BankcardService {
         logger.info("url:" + url);
         logger.info("queryParas" + map.toString());
         return checksuccessful(HttpUtil.get(url, map));
+    }
+    //会员查询接口，校验有效账号
+//    @RequestMapping(value = "/checkAccount ", method = RequestMethod.GET)
+    public Result checkStringAccount (String account) {
+        Map map = new HashMap<String, String>();
+        map.put("app_id", "1561193943194");                         //站长id，由中博支付分配
+        map.put("account", account);                  //中博所属系统下的会员账号
+
+        map.put("sign", md5Private(map,"8bb4bf843e284fc8b602f5faba77f29f"));
+        String url = "http://enoab4pay.abjxnow.com/fourth_payment_platform/pay/checkAccount";
+        logger.info("url:" + url);
+        logger.info("queryParas" + map.toString());
+        boolean isVailue = checksuccessful(HttpUtil.get(url, map));
+        if(!isVailue)
+            return ResultUtil.error(401,"不是有效会员");
+        return ResultUtil.success("检测成功");
     }
 
     private String md5Private(Map map,String secretKey){

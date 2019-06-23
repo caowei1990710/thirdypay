@@ -1,0 +1,199 @@
+2019-06-23 11:18:30.513 [INFO ] ThridypayApplication  Starting ThridypayApplication on LAPTOP-K8L84O8O with PID 7172 (D:\newgetpay\target\classes started by snsoft in D:\newgetpay)
+2019-06-23 11:18:30.519 [INFO ] ThridypayApplication  No active profile set, falling back to default profiles: default
+2019-06-23 11:18:31.062 [INFO ] Version  HV000001: Hibernate Validator 5.3.5.Final
+2019-06-23 11:18:31.150 [INFO ] AnnotationConfigEmbeddedWebApplicationContext  Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7c729a55: startup date [Sun Jun 23 11:18:31 SGT 2019]; root of context hierarchy
+2019-06-23 11:18:32.957 [INFO ] RepositoryConfigurationDelegate  Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-23 11:18:33.087 [INFO ] RepositoryConfigurationDelegate  Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-23 11:18:33.138 [INFO ] RepositoryConfigurationExtensionSupport  Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.demo.Repository.DepositRespositpory.
+2019-06-23 11:18:33.139 [INFO ] RepositoryConfigurationExtensionSupport  Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.demo.Repository.MerchatListRespository.
+2019-06-23 11:18:33.140 [INFO ] RepositoryConfigurationExtensionSupport  Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.demo.Repository.UserListRespositpory.
+2019-06-23 11:18:33.141 [INFO ] RepositoryConfigurationExtensionSupport  Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.demo.Repository.proposalListRespoitory.
+2019-06-23 11:18:35.490 [INFO ] TomcatEmbeddedServletContainer  Tomcat initialized with port(s): 8081 (http)
+2019-06-23 11:18:35.509 [INFO ] StandardService  Starting service [Tomcat]
+2019-06-23 11:18:35.511 [INFO ] StandardEngine  Starting Servlet Engine: Apache Tomcat/8.5.15
+2019-06-23 11:18:35.800 [INFO ] [/]  Initializing Spring embedded WebApplicationContext
+2019-06-23 11:18:35.800 [INFO ] ContextLoader  Root WebApplicationContext: initialization completed in 4650 ms
+2019-06-23 11:18:36.304 [INFO ] ServletRegistrationBean  Mapping servlet: 'dispatcherServlet' to [/]
+2019-06-23 11:18:36.310 [INFO ] FilterRegistrationBean  Mapping filter: 'metricsFilter' to: [/*]
+2019-06-23 11:18:36.310 [INFO ] FilterRegistrationBean  Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-06-23 11:18:36.311 [INFO ] FilterRegistrationBean  Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-06-23 11:18:36.311 [INFO ] FilterRegistrationBean  Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-06-23 11:18:36.312 [INFO ] FilterRegistrationBean  Mapping filter: 'requestContextFilter' to: [/*]
+2019-06-23 11:18:36.312 [INFO ] FilterRegistrationBean  Mapping filter: 'webRequestLoggingFilter' to: [/*]
+2019-06-23 11:18:36.312 [INFO ] FilterRegistrationBean  Mapping filter: 'applicationContextIdFilter' to: [/*]
+2019-06-23 11:18:36.398 [WARN ] AnnotationConfigEmbeddedWebApplicationContext  Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration': Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Tomcat.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.tomcat.jdbc.pool.DataSource]: Factory method 'dataSource' threw exception; nested exception is java.lang.IllegalStateException: Cannot load driver class: com.mysql.cj.jdbc.Driver
+2019-06-23 11:18:36.401 [INFO ] StandardService  Stopping service [Tomcat]
+2019-06-23 11:18:36.437 [INFO ] AutoConfigurationReportLoggingInitializer  
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2019-06-23 11:18:36.450 [ERROR] SpringApplication  Application startup failed
+org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration': Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Tomcat.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.tomcat.jdbc.pool.DataSource]: Factory method 'dataSource' threw exception; nested exception is java.lang.IllegalStateException: Cannot load driver class: com.mysql.cj.jdbc.Driver
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:749)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:189)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1193)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1095)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:372)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1173)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1067)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:197)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1078)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:857)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:543)
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.example.demo.ThridypayApplication.main(ThridypayApplication.java:14)
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'dataSource' defined in class path resource [org/springframework/boot/autoconfigure/jdbc/DataSourceConfiguration$Tomcat.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.tomcat.jdbc.pool.DataSource]: Factory method 'dataSource' threw exception; nested exception is java.lang.IllegalStateException: Cannot load driver class: com.mysql.cj.jdbc.Driver
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:599)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1173)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1067)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:513)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:483)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:306)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:230)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:302)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:208)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1138)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1066)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:835)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:741)
+	... 28 common frames omitted
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.tomcat.jdbc.pool.DataSource]: Factory method 'dataSource' threw exception; nested exception is java.lang.IllegalStateException: Cannot load driver class: com.mysql.cj.jdbc.Driver
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:189)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:588)
+	... 41 common frames omitted
+Caused by: java.lang.IllegalStateException: Cannot load driver class: com.mysql.cj.jdbc.Driver
+	at org.springframework.util.Assert.state(Assert.java:70)
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceProperties.determineDriverClassName(DataSourceProperties.java:231)
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceProperties.initializeDataSourceBuilder(DataSourceProperties.java:183)
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration.createDataSource(DataSourceConfiguration.java:42)
+	at org.springframework.boot.autoconfigure.jdbc.DataSourceConfiguration$Tomcat.dataSource(DataSourceConfiguration.java:56)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:162)
+	... 42 common frames omitted
+2019-06-23 11:19:01.272 [INFO ] ThridypayApplication  Starting ThridypayApplication on LAPTOP-K8L84O8O with PID 17340 (D:\newgetpay\target\classes started by snsoft in D:\newgetpay)
+2019-06-23 11:19:01.277 [INFO ] ThridypayApplication  No active profile set, falling back to default profiles: default
+2019-06-23 11:19:01.589 [INFO ] Version  HV000001: Hibernate Validator 5.3.5.Final
+2019-06-23 11:19:01.722 [INFO ] AnnotationConfigEmbeddedWebApplicationContext  Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7c729a55: startup date [Sun Jun 23 11:19:01 SGT 2019]; root of context hierarchy
+2019-06-23 11:19:03.301 [INFO ] RepositoryConfigurationDelegate  Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-23 11:19:03.394 [INFO ] RepositoryConfigurationDelegate  Multiple Spring Data modules found, entering strict repository configuration mode!
+2019-06-23 11:19:03.431 [INFO ] RepositoryConfigurationExtensionSupport  Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.demo.Repository.DepositRespositpory.
+2019-06-23 11:19:03.432 [INFO ] RepositoryConfigurationExtensionSupport  Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.demo.Repository.MerchatListRespository.
+2019-06-23 11:19:03.433 [INFO ] RepositoryConfigurationExtensionSupport  Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.demo.Repository.UserListRespositpory.
+2019-06-23 11:19:03.433 [INFO ] RepositoryConfigurationExtensionSupport  Spring Data Redis - Could not safely identify store assignment for repository candidate interface com.example.demo.Repository.proposalListRespoitory.
+2019-06-23 11:19:04.874 [INFO ] TomcatEmbeddedServletContainer  Tomcat initialized with port(s): 8081 (http)
+2019-06-23 11:19:04.887 [INFO ] StandardService  Starting service [Tomcat]
+2019-06-23 11:19:04.889 [INFO ] StandardEngine  Starting Servlet Engine: Apache Tomcat/8.5.15
+2019-06-23 11:19:05.062 [INFO ] [/]  Initializing Spring embedded WebApplicationContext
+2019-06-23 11:19:05.062 [INFO ] ContextLoader  Root WebApplicationContext: initialization completed in 3340 ms
+2019-06-23 11:19:05.458 [INFO ] ServletRegistrationBean  Mapping servlet: 'dispatcherServlet' to [/]
+2019-06-23 11:19:05.463 [INFO ] FilterRegistrationBean  Mapping filter: 'metricsFilter' to: [/*]
+2019-06-23 11:19:05.463 [INFO ] FilterRegistrationBean  Mapping filter: 'characterEncodingFilter' to: [/*]
+2019-06-23 11:19:05.463 [INFO ] FilterRegistrationBean  Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2019-06-23 11:19:05.463 [INFO ] FilterRegistrationBean  Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2019-06-23 11:19:05.463 [INFO ] FilterRegistrationBean  Mapping filter: 'requestContextFilter' to: [/*]
+2019-06-23 11:19:05.463 [INFO ] FilterRegistrationBean  Mapping filter: 'webRequestLoggingFilter' to: [/*]
+2019-06-23 11:19:05.464 [INFO ] FilterRegistrationBean  Mapping filter: 'applicationContextIdFilter' to: [/*]
+2019-06-23 11:19:08.298 [INFO ] LocalContainerEntityManagerFactoryBean  Building JPA container EntityManagerFactory for persistence unit 'default'
+2019-06-23 11:19:08.319 [INFO ] LogHelper  HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2019-06-23 11:19:08.535 [INFO ] Version  HHH000412: Hibernate Core {5.0.12.Final}
+2019-06-23 11:19:08.538 [INFO ] Environment  HHH000206: hibernate.properties not found
+2019-06-23 11:19:08.539 [INFO ] Environment  HHH000021: Bytecode provider name : javassist
+2019-06-23 11:19:08.647 [INFO ] Version  HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+2019-06-23 11:19:09.079 [INFO ] Dialect  HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2019-06-23 11:19:09.865 [INFO ] SchemaUpdate  HHH000228: Running hbm2ddl schema update
+2019-06-23 11:19:14.303 [INFO ] LocalContainerEntityManagerFactoryBean  Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-06-23 11:19:15.483 [INFO ] RequestMappingHandlerAdapter  Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@7c729a55: startup date [Sun Jun 23 11:19:01 SGT 2019]; root of context hierarchy
+2019-06-23 11:19:15.568 [INFO ] RequestMappingHandlerMapping  Mapped "{[/depositlist],methods=[GET]}" onto public com.example.demo.Model.Result com.example.demo.Controller.DepositController.getDepositlist()
+2019-06-23 11:19:15.570 [INFO ] RequestMappingHandlerMapping  Mapped "{[/Depositlist],methods=[POST]}" onto public com.example.demo.Model.Result com.example.demo.Controller.DepositController.addDepositlist(com.example.demo.Model.DepositList)
+2019-06-23 11:19:15.570 [INFO ] RequestMappingHandlerMapping  Mapped "{[/addbank],methods=[POST]}" onto public com.example.demo.Model.Result com.example.demo.Controller.DepositController.addUserList(com.example.demo.Model.UserList)
+2019-06-23 11:19:15.571 [INFO ] RequestMappingHandlerMapping  Mapped "{[/checkaccount],methods=[GET]}" onto public com.example.demo.Model.Result com.example.demo.Controller.DepositController.getUserList(java.lang.String)
+2019-06-23 11:19:15.571 [INFO ] RequestMappingHandlerMapping  Mapped "{[/test]}" onto public java.lang.String com.example.demo.Controller.HttpController.forwardTest()
+2019-06-23 11:19:15.572 [INFO ] RequestMappingHandlerMapping  Mapped "{[/helloWord],methods=[GET]}" onto public java.lang.String com.example.demo.test.HelloContorller.helloWord()
+2019-06-23 11:19:15.572 [INFO ] RequestMappingHandlerMapping  Mapped "{[/hello],methods=[GET]}" onto public java.lang.String com.example.demo.test.HelloContorller.say()
+2019-06-23 11:19:15.572 [INFO ] RequestMappingHandlerMapping  Mapped "{[/sayHello],methods=[GET]}" onto public java.lang.String com.example.demo.test.HelloContorller.sayHello()
+2019-06-23 11:19:15.575 [INFO ] RequestMappingHandlerMapping  Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2019-06-23 11:19:15.576 [INFO ] RequestMappingHandlerMapping  Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2019-06-23 11:19:15.615 [INFO ] SimpleUrlHandlerMapping  Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-06-23 11:19:15.615 [INFO ] SimpleUrlHandlerMapping  Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-06-23 11:19:15.669 [INFO ] SimpleUrlHandlerMapping  Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2019-06-23 11:19:15.723 [WARN ] AbstractTemplateResolverConfiguration  Cannot find template location: classpath:/templates/ (please add some templates or check your Thymeleaf configuration)
+2019-06-23 11:19:16.704 [INFO ] EndpointHandlerMapping  Mapped "{[/dump || /dump.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2019-06-23 11:19:16.705 [INFO ] EndpointHandlerMapping  Mapped "{[/heapdump || /heapdump.json],methods=[GET],produces=[application/octet-stream]}" onto public void org.springframework.boot.actuate.endpoint.mvc.HeapdumpMvcEndpoint.invoke(boolean,javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse) throws java.io.IOException,javax.servlet.ServletException
+2019-06-23 11:19:16.707 [INFO ] EndpointHandlerMapping  Mapped "{[/configprops || /configprops.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2019-06-23 11:19:16.707 [INFO ] EndpointHandlerMapping  Mapped "{[/info || /info.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2019-06-23 11:19:16.708 [INFO ] EndpointHandlerMapping  Mapped "{[/beans || /beans.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2019-06-23 11:19:16.709 [INFO ] EndpointHandlerMapping  Mapped "{[/auditevents || /auditevents.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public org.springframework.http.ResponseEntity<?> org.springframework.boot.actuate.endpoint.mvc.AuditEventsMvcEndpoint.findByPrincipalAndAfterAndType(java.lang.String,java.util.Date,java.lang.String)
+2019-06-23 11:19:16.710 [INFO ] EndpointHandlerMapping  Mapped "{[/autoconfig || /autoconfig.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2019-06-23 11:19:16.714 [INFO ] EndpointHandlerMapping  Mapped "{[/env/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EnvironmentMvcEndpoint.value(java.lang.String)
+2019-06-23 11:19:16.714 [INFO ] EndpointHandlerMapping  Mapped "{[/env || /env.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2019-06-23 11:19:16.715 [INFO ] EndpointHandlerMapping  Mapped "{[/trace || /trace.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2019-06-23 11:19:16.716 [INFO ] EndpointHandlerMapping  Mapped "{[/metrics/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.MetricsMvcEndpoint.value(java.lang.String)
+2019-06-23 11:19:16.716 [INFO ] EndpointHandlerMapping  Mapped "{[/metrics || /metrics.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2019-06-23 11:19:16.717 [INFO ] EndpointHandlerMapping  Mapped "{[/health || /health.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.HealthMvcEndpoint.invoke(javax.servlet.http.HttpServletRequest,java.security.Principal)
+2019-06-23 11:19:16.725 [INFO ] EndpointHandlerMapping  Mapped "{[/loggers/{name:.*}],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.LoggersMvcEndpoint.get(java.lang.String)
+2019-06-23 11:19:16.725 [INFO ] EndpointHandlerMapping  Mapped "{[/loggers/{name:.*}],methods=[POST],consumes=[application/vnd.spring-boot.actuator.v1+json || application/json],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.LoggersMvcEndpoint.set(java.lang.String,java.util.Map<java.lang.String, java.lang.String>)
+2019-06-23 11:19:16.726 [INFO ] EndpointHandlerMapping  Mapped "{[/loggers || /loggers.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2019-06-23 11:19:16.726 [INFO ] EndpointHandlerMapping  Mapped "{[/mappings || /mappings.json],methods=[GET],produces=[application/vnd.spring-boot.actuator.v1+json || application/json]}" onto public java.lang.Object org.springframework.boot.actuate.endpoint.mvc.EndpointMvcAdapter.invoke()
+2019-06-23 11:19:17.154 [WARN ] RedisStarterDeprecationWarningAutoConfiguration  spring-boot-starter-redis is deprecated as of Spring Boot 1.4, please migrate to spring-boot-starter-data-redis
+2019-06-23 11:19:17.215 [INFO ] AnnotationMBeanExporter  Registering beans for JMX exposure on startup
+2019-06-23 11:19:17.221 [INFO ] EndpointMBeanExporter  Registering beans for JMX exposure on startup
+2019-06-23 11:19:17.228 [INFO ] DefaultLifecycleProcessor  Starting beans in phase 0
+2019-06-23 11:19:17.231 [INFO ] EndpointMBeanExporter  Located managed bean 'auditEventsEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=auditEventsEndpoint]
+2019-06-23 11:19:17.256 [INFO ] EndpointMBeanExporter  Located managed bean 'requestMappingEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=requestMappingEndpoint]
+2019-06-23 11:19:17.266 [INFO ] EndpointMBeanExporter  Located managed bean 'environmentEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=environmentEndpoint]
+2019-06-23 11:19:17.270 [INFO ] EndpointMBeanExporter  Located managed bean 'healthEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=healthEndpoint]
+2019-06-23 11:19:17.273 [INFO ] EndpointMBeanExporter  Located managed bean 'beansEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=beansEndpoint]
+2019-06-23 11:19:17.275 [INFO ] EndpointMBeanExporter  Located managed bean 'infoEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=infoEndpoint]
+2019-06-23 11:19:17.279 [INFO ] EndpointMBeanExporter  Located managed bean 'loggersEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=loggersEndpoint]
+2019-06-23 11:19:17.285 [INFO ] EndpointMBeanExporter  Located managed bean 'metricsEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=metricsEndpoint]
+2019-06-23 11:19:17.288 [INFO ] EndpointMBeanExporter  Located managed bean 'traceEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=traceEndpoint]
+2019-06-23 11:19:17.290 [INFO ] EndpointMBeanExporter  Located managed bean 'dumpEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=dumpEndpoint]
+2019-06-23 11:19:17.293 [INFO ] EndpointMBeanExporter  Located managed bean 'autoConfigurationReportEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=autoConfigurationReportEndpoint]
+2019-06-23 11:19:17.295 [INFO ] EndpointMBeanExporter  Located managed bean 'configurationPropertiesReportEndpoint': registering with JMX server as MBean [org.springframework.boot:type=Endpoint,name=configurationPropertiesReportEndpoint]
+2019-06-23 11:19:17.314 [INFO ] Http11NioProtocol  Initializing ProtocolHandler ["http-nio-8081"]
+2019-06-23 11:19:17.325 [INFO ] Http11NioProtocol  Starting ProtocolHandler ["http-nio-8081"]
+2019-06-23 11:19:17.341 [INFO ] NioSelectorPool  Using a shared selector for servlet write/read
+2019-06-23 11:19:17.384 [INFO ] TomcatEmbeddedServletContainer  Tomcat started on port(s): 8081 (http)
+2019-06-23 11:19:17.393 [INFO ] ThridypayApplication  Started ThridypayApplication in 16.633 seconds (JVM running for 18.23)
+2019-06-23 11:19:39.919 [INFO ] [/]  Initializing Spring FrameworkServlet 'dispatcherServlet'
+2019-06-23 11:19:39.920 [INFO ] DispatcherServlet  FrameworkServlet 'dispatcherServlet': initialization started
+2019-06-23 11:19:39.961 [INFO ] DispatcherServlet  FrameworkServlet 'dispatcherServlet': initialization completed in 41 ms
+2019-06-23 11:19:58.205 [INFO ] BankcardService  sign:account=test1&app_id=1561193943194&key=8bb4bf843e284fc8b602f5faba77f29f
+2019-06-23 11:19:58.214 [INFO ] BankcardService  signMD5:8a552fcb88f57a9db65c10a77125ddac
+2019-06-23 11:19:58.214 [INFO ] BankcardService  url:http://enoab4pay.abjxnow.com/fourth_payment_platform/pay/checkAccount
+2019-06-23 11:19:58.214 [INFO ] BankcardService  queryParas{sign=8a552fcb88f57a9db65c10a77125ddac, app_id=1561193943194, account=test1}
+2019-06-23 11:19:58.558 [INFO ] BankcardService  result:{"status":"false","msg":"无效账号，查无会员或商户号"}
+
+2019-06-23 11:20:13.808 [INFO ] BankcardService  sign:account=cs8520&app_id=1561193943194&key=8bb4bf843e284fc8b602f5faba77f29f
+2019-06-23 11:20:13.808 [INFO ] BankcardService  signMD5:ea3ebffb80fc16e8d213240233732db2
+2019-06-23 11:20:13.808 [INFO ] BankcardService  url:http://enoab4pay.abjxnow.com/fourth_payment_platform/pay/checkAccount
+2019-06-23 11:20:13.810 [INFO ] BankcardService  queryParas{sign=ea3ebffb80fc16e8d213240233732db2, app_id=1561193943194, account=cs8520}
+2019-06-23 11:20:13.929 [INFO ] BankcardService  result:{"status":"false","msg":"无效账号，查无会员或商户号"}
+
+2019-06-23 11:21:25.786 [INFO ] BankcardService  sign:account=test456&app_id=1561193943194&key=8bb4bf843e284fc8b602f5faba77f29f
+2019-06-23 11:21:25.787 [INFO ] BankcardService  signMD5:f8df38a1e2415c16f9b3a0f25b668fc9
+2019-06-23 11:21:25.787 [INFO ] BankcardService  url:http://enoab4pay.abjxnow.com/fourth_payment_platform/pay/checkAccount
+2019-06-23 11:21:25.787 [INFO ] BankcardService  queryParas{sign=f8df38a1e2415c16f9b3a0f25b668fc9, app_id=1561193943194, account=test456}
+2019-06-23 11:21:26.189 [INFO ] BankcardService  result:{"status":"true","msg":"有效账号"}
+

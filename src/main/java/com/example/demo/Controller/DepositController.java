@@ -3,10 +3,7 @@ package com.example.demo.Controller;
 import com.example.demo.Model.*;
 import com.example.demo.Service.BankcardService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 
@@ -45,8 +42,8 @@ public class DepositController {
         return bankcardService.addUserList(userList);
     }
 
-    @RequestMapping(value = "/getbank", method = {RequestMethod.GET})
-    public Result getUserList(String userName) {
-        return bankcardService.getUserList(userName);
+    @RequestMapping(value = "/checkaccount", method = {RequestMethod.GET})
+    public Result getUserList(@RequestParam("userName") String userName) {
+        return bankcardService.checkStringAccount(userName);
     }
 }

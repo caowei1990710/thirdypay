@@ -6,16 +6,16 @@ spring:
    store-type: none
 
  datasource:
-#    driver-class-name: com.mysql.jdbc.Driver
-#    url: jdbc:mysql://47.52.77.234:3306/shunfudb?useUnicode=true&characterEncoding=UTF-8
-#    username: shunfu
-#    password: colin123!@#
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://47.52.77.234:3306/shunfudb?useUnicode=true&characterEncoding=UTF-8
+    username: shunfu
+    password: colin123!@#
 
 #   mysql 8.0的配置
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/shunfudb?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
-    username: root
-    password: vergil123
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/shunfudb?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
+#    username: root
+#    password: vergil123
 
  jpa:
     show-sql: false
