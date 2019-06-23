@@ -17,6 +17,12 @@ spring:
 #    username: root
 #    password: vergil123
 
+   #   mysql 8.0的配置
+#   driver-class-name: com.mysql.cj.jdbc.Driver
+#   url: jdbc:mysql://rm-j6c2dj15gqa3mnsqg8o.mysql.rds.aliyuncs.com:3306/shunfudb?characterEncoding=utf8&useSSL=false&serverTimezone=UTC&rewriteBatchedStatements=true
+#   username: qq3314097519
+#   password: frybre@2912
+
  jpa:
     show-sql: false
     hibernate:

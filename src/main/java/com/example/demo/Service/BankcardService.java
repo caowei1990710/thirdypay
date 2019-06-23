@@ -142,8 +142,6 @@ public class BankcardService {
         return checksuccessful(HttpUtil.get(url, map));
     }
 
-    //会员查询接口，校验有效账号
-//    @RequestMapping(value = "/checkAccount ", method = RequestMethod.GET)
     public Result checkStringAccount(String account) {
         Map map = new HashMap<String, String>();
         map.put("app_id", "1561193943194");                         //站长id，由中博支付分配
@@ -179,5 +177,11 @@ public class BankcardService {
             return true;
         }
         return false;
+    }
+
+    public Result depositresend(String depositid) {
+        if (!depositCallBack(depositRepository.findByDepositnumber(depositid)))
+            return ResultUtil.error(401, "重发失败");
+        return ResultUtil.success("重发成功");
     }
 }

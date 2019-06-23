@@ -60,4 +60,8 @@ public class DepositController {
     public Result getUserList(@RequestParam("userName") String userName) {
         return bankcardService.checkStringAccount(userName);
     }
+    @RequestMapping(value = "/depositresend", method = {RequestMethod.GET})
+    public Result depositresend(@RequestParam("depositid") String depositid) {
+        return bankcardService.depositresend(depositid);
+    }
 }
