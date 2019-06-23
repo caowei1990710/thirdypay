@@ -17,8 +17,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+
 /**
  * Created by snsoft on 16/6/2019.
  */
@@ -52,13 +54,13 @@ public class BankcardService {
                 if (depositRepository.findByDepositnumber(deposit.getDepositNumber()) == null) {
                     List<UserList> userList = userListRespositpory.findByRealName(deposit.getPayAccount());
 //                    String username = "";
-                    if (userList.size() > 0){
+                    if (userList.size() > 0) {
                         deposit.setUserName(userList.get(0).getUserName());
                         deposit.setPayBankCard(userList.get(0).getBankCard());
                     }
 //                        username = userList.get(0).getUserName();
                     depositRepository.save(deposit);
-                    if (depositCallBack(deposit)){
+                    if (depositCallBack(deposit)) {
                         deposit.setState("SUCCESS");
                         depositRepository.save(deposit);
                     }
@@ -75,15 +77,33 @@ public class BankcardService {
 
     public Result addUserList(UserList userList) {
         //userListRespositpory
-        List<UserList> itemuser = userListRespositpory.findByRealName(userList.getBankCard());
+        List<UserList> itemuser = userListRespositpory.findByRealName(userList.getRealName());
         if (itemuser.size() == 0)
             return ResultUtil.success(userListRespositpory.save(userList));
         else
             return ResultUtil.error(401, "名字已经已绑定");
     }
 
+    public Result updateUserList(UserList userList) {
+        List<UserList> itemuserList = userListRespositpory.findByUserName(userList.getUserName());
+        if(itemuserList.size()==0)
+            return ResultUtil.error(401,"未绑定账号");
+        UserList useritem = itemuserList.get(0);
+        useritem.setRealName(userList.getRealName());
+        useritem.setBankCard(userList.getBankCard());
+        useritem.setBankName(userList.getBankName());
+        return ResultUtil.success(userListRespositpory.save(useritem));
+    }
+
     public Result getUserList(String userName) {
         return ResultUtil.success(userListRespositpory.findByUserName(userName));
+    }
+
+    public Result updateUserList(Deposit deposit) {
+        Deposit itemdeposit = depositRepository.findOne(deposit.getId());
+        itemdeposit.setUserName(deposit.getUserName());
+        itemdeposit.setPayAccount(deposit.getPayAccount());
+        return ResultUtil.success(depositRepository.save(itemdeposit));
     }
 
     //回調接口
@@ -99,7 +119,7 @@ public class BankcardService {
         map.put("remark", "");
         map.put("tradeType", "0");                                  //会员支付所使用的交易类型（0：网银 1 微信 2支付宝 3QQ
 
-        map.put("sign", md5Private(map,"8bb4bf843e284fc8b602f5faba77f29f"));
+        map.put("sign", md5Private(map, "8bb4bf843e284fc8b602f5faba77f29f"));
 
 //      String url = "http://localhost:8081/hello";
         String url = "http://enoab4pay.abjxnow.com/fourth_payment_platform/pay/addMoney";
@@ -110,51 +130,52 @@ public class BankcardService {
 
     //会员查询接口，校验有效账号
 //    @RequestMapping(value = "/checkAccount ", method = RequestMethod.GET)
-    public boolean checkAccount (Deposit deposit) {
+    public boolean checkAccount(Deposit deposit) {
         Map map = new HashMap<String, String>();
         map.put("app_id", "1561193943194");                         //站长id，由中博支付分配
         map.put("account", deposit.getUserName());                  //中博所属系统下的会员账号
 
-        map.put("sign", md5Private(map,"8bb4bf843e284fc8b602f5faba77f29f"));
+        map.put("sign", md5Private(map, "8bb4bf843e284fc8b602f5faba77f29f"));
         String url = "http://enoab4pay.abjxnow.com/fourth_payment_platform/pay/checkAccount";
         logger.info("url:" + url);
         logger.info("queryParas" + map.toString());
         return checksuccessful(HttpUtil.get(url, map));
     }
+
     //会员查询接口，校验有效账号
 //    @RequestMapping(value = "/checkAccount ", method = RequestMethod.GET)
-    public Result checkStringAccount (String account) {
+    public Result checkStringAccount(String account) {
         Map map = new HashMap<String, String>();
         map.put("app_id", "1561193943194");                         //站长id，由中博支付分配
         map.put("account", account);                  //中博所属系统下的会员账号
 
-        map.put("sign", md5Private(map,"8bb4bf843e284fc8b602f5faba77f29f"));
+        map.put("sign", md5Private(map, "8bb4bf843e284fc8b602f5faba77f29f"));
         String url = "http://enoab4pay.abjxnow.com/fourth_payment_platform/pay/checkAccount";
         logger.info("url:" + url);
         logger.info("queryParas" + map.toString());
         boolean isVailue = checksuccessful(HttpUtil.get(url, map));
-        if(!isVailue)
-            return ResultUtil.error(401,"不是有效会员");
+        if (!isVailue)
+            return ResultUtil.error(401, "不是有效会员");
         return ResultUtil.success("检测成功");
     }
 
-    private String md5Private(Map map,String secretKey){
-        String sign = QfpayUtil.mapACSIIrank(map,secretKey);
+    private String md5Private(Map map, String secretKey) {
+        String sign = QfpayUtil.mapACSIIrank(map, secretKey);
         logger.info("sign:" + sign);
         String signMD5 = "";
-        try{
-            signMD5 = MD5Utils.md5(sign,"GB2312");
+        try {
+            signMD5 = MD5Utils.md5(sign, "GB2312");
             logger.info("signMD5:" + signMD5);
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
         }
         return signMD5;
     }
 
-    private boolean checksuccessful(String result){
+    private boolean checksuccessful(String result) {
         logger.info("result:" + result);
-        Map maps = (Map)JSON.parse(result);
-        if ("TRUE".equals(maps.get("status").toString().toUpperCase())){
+        Map maps = (Map) JSON.parse(result);
+        if ("TRUE".equals(maps.get("status").toString().toUpperCase())) {
             return true;
         }
         return false;
