@@ -27,6 +27,11 @@ public class DepositController {
 
     }
 
+    @RequestMapping(value = "/setDefault", method = {RequestMethod.GET})
+    public Result setDefaultbankcard() {
+        return bankcardService.setDefault();
+    }
+
     @RequestMapping(value = "/depositlist", method = {RequestMethod.GET})
     public Result getDepositlist() {
 //        try {
@@ -38,6 +43,23 @@ public class DepositController {
 
     }
 
+    @RequestMapping(value = "/updatebankitem", method = {RequestMethod.POST})
+    public Result updateBankCard(BankCard bankcard) {
+        return bankcardService.updateBankCard(bankcard);
+    }
+
+    @RequestMapping(value = "/getbankitem", method = {RequestMethod.GET})
+    public Result getBankCard() {
+        return bankcardService.getAllBankCard();
+    }
+    @RequestMapping(value = "/getbankitemstate", method = {RequestMethod.GET})
+    public Result getBankCardState(String state) {
+        return bankcardService.getStateBankCard(state);
+    }
+    //    @RequestMapping(value="/setdefault", method = {RequestMethod.GET} )
+//    public Result setDefault(){
+//        return bankcardService.
+//    }
     @RequestMapping(value = "/updatebank", method = {RequestMethod.PUT})
     public Result updateDeposit(Deposit deposit) {
         return bankcardService.updateUserList(deposit);
@@ -52,16 +74,29 @@ public class DepositController {
     public Result addUserList(UserList userList) {
         return bankcardService.addUserList(userList);
     }
+
     @RequestMapping(value = "/updateuser", method = {RequestMethod.PUT})
     public Result updateUserList(UserList userList) {
         return bankcardService.updateUserList(userList);
     }
+
     @RequestMapping(value = "/checkaccount", method = {RequestMethod.GET})
     public Result getUserList(@RequestParam("userName") String userName) {
         return bankcardService.checkStringAccount(userName);
     }
+
     @RequestMapping(value = "/depositresend", method = {RequestMethod.GET})
     public Result depositresend(@RequestParam("depositid") String depositid) {
         return bankcardService.depositresend(depositid);
+    }
+
+    @RequestMapping(value = "/getTurnOn", method = {RequestMethod.GET})
+    public Result getturnon(String depositNumber) {
+        return bankcardService.getTurnOn(depositNumber);
+    }
+
+    @RequestMapping(value = "/setTurnOn", method = {RequestMethod.POST})
+    public Result seturnon(TurnOn turnOn) {
+        return bankcardService.setTurnOn(turnOn);
     }
 }

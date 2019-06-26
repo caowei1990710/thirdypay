@@ -1,7 +1,9 @@
 package com.example.demo.Service;
 
 import com.example.demo.Model.*;
+import com.example.demo.Repository.BankCardRespositpory;
 import com.example.demo.Repository.DepositRespositpory;
+import com.example.demo.Repository.TurnOnRespositpory;
 import com.example.demo.Repository.UserListRespositpory;
 import com.example.demo.utils.HttpUtil;
 import com.example.demo.utils.MD5Utils;
@@ -14,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -36,6 +39,10 @@ public class BankcardService {
     private DepositRespositpory depositRepository;
     @Autowired
     private UserListRespositpory userListRespositpory;
+    @Autowired
+    private BankCardRespositpory bankcardRespositpory;
+    @Autowired
+    private TurnOnRespositpory trunonrespositpory;
 
     public Result saveDepositList(DepositList depositList) {
         for (int i = 0; i < depositList.getDepositRecords().size(); i++) {
@@ -86,13 +93,31 @@ public class BankcardService {
 
     public Result updateUserList(UserList userList) {
         List<UserList> itemuserList = userListRespositpory.findByUserName(userList.getUserName());
-        if(itemuserList.size()==0)
-            return ResultUtil.error(401,"未绑定账号");
+        if (itemuserList.size() == 0)
+            return ResultUtil.error(401, "未绑定账号");
         UserList useritem = itemuserList.get(0);
         useritem.setRealName(userList.getRealName());
         useritem.setBankCard(userList.getBankCard());
         useritem.setBankName(userList.getBankName());
         return ResultUtil.success(userListRespositpory.save(useritem));
+    }
+
+    public Result setDefault() {
+        BankCard bankCard = new BankCard();
+        bankCard.setBankType("农业银行");
+        bankCard.setBankname("济南瓦维商贸有限公司");
+        bankCard.setBankaddress("济南市文苑支行");
+        bankCard.setBankcard("15153201040004896");
+        bankCard.setState("NORMAL");
+        bankcardRespositpory.save(bankCard);
+        BankCard bankCarditem = new BankCard();
+        bankCarditem.setBankType("建设银行");
+        bankCarditem.setBankname("广州琪其贸易部");
+        bankCarditem.setBankaddress("广州南国花园支行");
+        bankCarditem.setBankcard("44050158051100001542");
+        bankCarditem.setState("NORMAL");
+        bankcardRespositpory.save(bankCarditem);
+        return ResultUtil.success("初始化成功");
     }
 
     public Result getUserList(String userName) {
@@ -106,6 +131,25 @@ public class BankcardService {
         return ResultUtil.success(depositRepository.save(itemdeposit));
     }
 
+    public Result updateBankCard(BankCard bankCard) {
+        BankCard bankcarditem = bankcardRespositpory.findOne(bankCard.getId());
+        if (bankcarditem == null)
+            return ResultUtil.error(401, "账号不存在");
+        bankcarditem.setBankaddress(bankCard.getBankaddress());
+        bankcarditem.setBankcard(bankCard.getBankcard());
+        bankcarditem.setBankname(bankCard.getBankname());
+        bankcarditem.setBankType(bankCard.getBankType());
+        bankcarditem.setState(bankCard.getState());
+        bankcarditem.setUpdateTime(new Date());
+        return ResultUtil.success(bankcardRespositpory.save(bankcarditem));
+    }
+
+    public Result getAllBankCard() {
+        return ResultUtil.success(bankcardRespositpory.findAlllist());
+    }
+    public Result getStateBankCard(String state) {
+        return ResultUtil.success(bankcardRespositpory.findStatelist(state));
+    }
     //回調接口
 //    @RequestMapping(value = "/depositCallBack", method = RequestMethod.GET)
     public boolean depositCallBack(Deposit deposit) {
@@ -155,6 +199,28 @@ public class BankcardService {
         if (!isVailue)
             return ResultUtil.error(401, "不是有效会员");
         return ResultUtil.success("检测成功");
+    }
+
+    public Result setTurnOn(TurnOn turnOn) {
+        TurnOn itemtrinOn = new TurnOn();
+        itemtrinOn = trunonrespositpory.findBydepositNumber(turnOn.getDepositNumber());
+        if (itemtrinOn == null)
+            return ResultUtil.success(trunonrespositpory.save(turnOn));
+        itemtrinOn.setRemark(turnOn.getRemark());
+        trunonrespositpory.save(itemtrinOn);
+        return ResultUtil.success("存储成功");
+//        trunonrespositpory.findBydepositNumber(turnOn.getDepositNumber())
+    }
+
+    public Result getTurnOn(String depositNumber) {
+//        TurnOn itemtrinOn = new TurnOn();
+//        itemtrinOn = trunonrespositpory.findBydepositNumber(turnOn.getDepositNumber());
+//        if (turnOn == null)
+//            trunonrespositpory.save(turnOn);
+//        itemtrinOn.setRemark(turnOn.getRemark());
+//        trunonrespositpory.save(itemtrinOn);
+        return ResultUtil.success(trunonrespositpory.findBydepositNumber(depositNumber));
+//        trunonrespositpory.findBydepositNumber(turnOn.getDepositNumber())
     }
 
     private String md5Private(Map map, String secretKey) {
