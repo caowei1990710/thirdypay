@@ -1,6 +1,26 @@
 package com.example.demo.utils;
 
+import com.alibaba.fastjson.JSON;
+import org.apache.http.HttpEntity;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.CloseableHttpResponse;
+import org.apache.http.client.methods.HttpPost;
+import org.apache.http.client.methods.HttpRequestBase;
+import org.apache.http.entity.ContentType;
+import org.apache.http.entity.StringEntity;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.message.BasicHeader;
+import org.apache.http.message.BasicNameValuePair;
+import org.apache.http.util.EntityUtils;
+
+import java.util.*;
+import java.util.Map.Entry;
+
 import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 import java.io.*;
@@ -13,6 +33,10 @@ import java.security.NoSuchProviderException;
 import java.util.Map;
 
 public class HttpUtil {
+
+    static final Logger logger = LoggerFactory.getLogger(HttpUtil.class);
+    static final String charset = "UTF-8";
+
 
     private HttpUtil() {
     }
@@ -65,50 +89,139 @@ public class HttpUtil {
     }
 
     /**
-     * 发送POST请求
-     *
-     * @param url     发送请求的URL
-     * @param data    http请求包的包体
-     * @param headers 头集合
-     * @return 所代表远程资源的响应结果
+     * post请求
      */
-    public static String post(String url, String data, Map<String, String> headers) {
-        return post(url, null, data, headers);
+    public static String doPost(String url) throws Exception {
+        return doPost(url, null, null);
+    }
+
+    public static String doPost(String url, Map<String, Object> params) throws Exception {
+        return doPost(url, params, null);
+    }
+
+    public static String doPost(String url, Map<String, Object> params, Map<String, String> header) throws Exception {
+        String body = null;
+        try {
+            // Post请求
+            logger.debug(" protocol: POST");
+            logger.debug("      url: " + url);
+            HttpPost httpPost = new HttpPost(url.trim());
+            // 设置参数
+            logger.debug("   params: " + JSON.toJSONString(params));
+            httpPost.setEntity(new UrlEncodedFormEntity(map2NameValuePairList(params), charset));
+            // 设置Header
+            if (header != null && !header.isEmpty()) {
+                logger.debug("   header: " + JSON.toJSONString(header));
+                for (Iterator<Entry<String, String>> it = header.entrySet().iterator(); it.hasNext(); ) {
+                    Entry<String, String> entry = (Entry<String, String>) it.next();
+                    httpPost.setHeader(new BasicHeader(entry.getKey(), entry.getValue()));
+                }
+            }
+            // 发送请求,获取返回数据
+            body = execute(httpPost);
+        } catch (Exception e) {
+            throw e;
+        }
+        logger.debug("   result: " + body);
+        return body;
     }
 
     /**
-     * 发送POST请求
-     *
-     * @param url        发送请求的URL
-     * @param queryParas 请求参数(写在url后面的参数)如http://www.baidu.com?state=1&data=233
-     * @param data       http请求包的包体
-     * @param headers    头集合
-     * @return
+     * postJson请求
      */
-    public static String post(String url, Map<String, String> queryParas, String data, Map<String, String> headers) {
-        HttpURLConnection conn = null;
-        try {
-            //获取HttpURLConnection连接并设置参数
-            conn = getHttpConnection(buildUrlWithQueryString(url, queryParas), "POST", headers);
-            // 建立HttpURLConnection实际的连接
-            conn.connect();
-            // 获取URLConnection对象对应的输出流
-            OutputStream out = conn.getOutputStream();
-            // 发送请求参数
-            out.write(data.getBytes("utf-8"));
-            // flush输出流的缓冲
-            out.flush();
-            //关闭输出流
-            out.close();
-            //返回  定义BufferedReader输入流来读取URL的响应
-            return readResponseString(conn);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        } finally {
-            if (conn != null) {
-                conn.disconnect();
+    public static String doPostJson(String url, Map<String, Object> params) throws Exception {
+        return doPostJson(url, params, null);
+    }
+
+    public static String doPostJson(String url, Map<String, Object> params, Map<String, String> header) throws Exception {
+        String json = null;
+        if (params != null && !params.isEmpty()) {
+            for (Iterator<Entry<String, Object>> it = params.entrySet().iterator(); it.hasNext(); ) {
+                Entry<String, Object> entry = (Entry<String, Object>) it.next();
+                Object object = entry.getValue();
+                if (object == null) {
+                    it.remove();
+                }
             }
+            json = JSON.toJSONString(params);
         }
+        return postJson(url, json, header);
+    }
+
+    public static String doPostJson(String url, String json) throws Exception {
+        return doPostJson(url, json, null);
+    }
+
+    public static String doPostJson(String url, String json, Map<String, String> header) throws Exception {
+        return postJson(url, json, header);
+    }
+
+    private static String postJson(String url, String json, Map<String, String> header) throws Exception {
+        String body = null;
+        try {
+            // Post请求
+            logger.debug("      url: " + url);
+            HttpPost httpPost = new HttpPost(url.trim());
+            // 设置参数
+            logger.debug("   params: " + json);
+            httpPost.setEntity(new StringEntity(json, ContentType.DEFAULT_TEXT.withCharset(charset)));
+            httpPost.setHeader(new BasicHeader("Content-Type", "application/json"));
+            logger.debug("     type: JSON");
+            // 设置Header
+            if (header != null && !header.isEmpty()) {
+                logger.debug("   header: " + JSON.toJSONString(header));
+                for (Iterator<Entry<String, String>> it = header.entrySet().iterator(); it.hasNext(); ) {
+                    Entry<String, String> entry = (Entry<String, String>) it.next();
+                    httpPost.setHeader(new BasicHeader(entry.getKey(), entry.getValue()));
+                }
+            }
+            // 发送请求,获取返回数据
+            body = execute(httpPost);
+        } catch (Exception e) {
+            throw e;
+        }
+        return body;
+    }
+
+    private static String execute(HttpRequestBase requestBase) throws Exception {
+        CloseableHttpClient httpclient = HttpClients.createDefault();
+        String body = null;
+        try {
+            CloseableHttpResponse response = httpclient.execute(requestBase);
+            try {
+                HttpEntity entity = response.getEntity();
+
+                if (entity != null) {
+                    body = EntityUtils.toString(entity, charset);
+                }
+                EntityUtils.consume(entity);
+            } catch (Exception e) {
+                throw e;
+            } finally {
+                response.close();
+            }
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            httpclient.close();
+        }
+        return body;
+    }
+
+    private static List<NameValuePair> map2NameValuePairList(Map<String, Object> params) {
+        if (params != null && !params.isEmpty()) {
+            List<NameValuePair> list = new ArrayList<NameValuePair>();
+            Iterator<String> it = params.keySet().iterator();
+            while (it.hasNext()) {
+                String key = it.next();
+                if (params.get(key) != null) {
+                    String value = String.valueOf(params.get(key));
+                    list.add(new BasicNameValuePair(key, value));
+                }
+            }
+            return list;
+        }
+        return null;
     }
 
     /**

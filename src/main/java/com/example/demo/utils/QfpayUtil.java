@@ -13,27 +13,52 @@ public class QfpayUtil {
 
     /**
      * 加签
+     *
      * @param map
      * @return
      */
-    public static String mapACSIIrank(Map<String, Object> map, String signKey){
-        if(map==null){
+    public static String mapACSIIrank(Map<String, Object> map, String signKey) {
+        if (map == null) {
             return null;
         }
         List<String> keyList = new ArrayList<>(map.keySet());
         Collections.sort(keyList);
         StringBuffer sb = new StringBuffer();
-        for(int i=0;i<keyList.size();i++){
+        for (int i = 0; i < keyList.size(); i++) {
             String key = keyList.get(i);
             Object value = map.get(key);
-            if (!StringUtils.isEmpty(""+map.get(key))){
-                sb.append(key+"="+value+"&");
+            if (!StringUtils.isEmpty("" + map.get(key))) {
+                sb.append(key + "=" + value + "&");
             }
         }
-        String signStr = sb+"key="+signKey;
-        System.out.println("before sign: "+signStr);
+        String signStr = sb + "key=" + signKey;
+        System.out.println("before sign: " + signStr);
 //        String md5Str = DigestUtils.md5Hex(signStr);
 //        System.out.println("after sign: "+md5Str);
+        return signStr;
+    }
+
+    /**
+     * 加签
+     *
+     * @param map
+     * @return
+     */
+    public static String mapACSIIrank2(Map<String, Object> map, String signKey) {
+        if (map == null) {
+            return null;
+        }
+        List<String> keyList = new ArrayList<>(map.keySet());
+        Collections.sort(keyList);
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < keyList.size(); i++) {
+            String key = keyList.get(i);
+            Object value = map.get(key);
+            if (!StringUtils.isEmpty("" + map.get(key))) {
+                sb.append(key + "=" + value + "&");
+            }
+        }
+        String signStr = sb + signKey;
         return signStr;
     }
 

@@ -51,6 +51,8 @@ public class Deposit implements Serializable {
     private String userName;//游戏账号
     private String success;
     private String payBankCard;//付款卡号
+    private String orderno;//平台订单号
+    private String callbackurl;//支付成功回调请求地址
 
     public String getPayBankCard() {
         return payBankCard;
@@ -262,6 +264,22 @@ public class Deposit implements Serializable {
         this.callUrl = callUrl;
     }
 
+    public String getOrderno() {
+        return orderno;
+    }
+
+    public void setOrderno(String orderno) {
+        this.orderno = orderno;
+    }
+
+    public String getCallbackurl() {
+        return callbackurl;
+    }
+
+    public void setCallbackurl(String callbackurl) {
+        this.callbackurl = callbackurl;
+    }
+
     public Deposit() {
         this.creatTime = new Date();
         this.tranTime = new Date();
@@ -280,6 +298,7 @@ public class Deposit implements Serializable {
                 ", tranTime=" + tranTime +
                 ", creatTime=" + creatTime +
                 ", excuteTime=" + excuteTime +
+                ", transferTime='" + transferTime + '\'' +
                 ", note='" + note + '\'' +
                 ", amount=" + amount +
                 ", tranfee=" + tranfee +
@@ -289,15 +308,19 @@ public class Deposit implements Serializable {
                 ", billNo='" + billNo + '\'' +
                 ", platfrom='" + platfrom + '\'' +
                 ", times=" + times +
-                ", transferTime=" + transferTime +
-                ", payAccount=" + payAccount +
                 ", createUser='" + createUser + '\'' +
+                ", payAccount='" + payAccount + '\'' +
+                ", ip='" + ip + '\'' +
                 ", userRemark='" + userRemark + '\'' +
                 ", payType='" + payType + '\'' +
                 ", callUrl='" + callUrl + '\'' +
+                ", sign='" + sign + '\'' +
                 ", platfromName='" + platfromName + '\'' +
                 ", userName='" + userName + '\'' +
                 ", success='" + success + '\'' +
+                ", payBankCard='" + payBankCard + '\'' +
+                ", orderno='" + orderno + '\'' +
+                ", callbackurl='" + callbackurl + '\'' +
                 '}';
     }
 }
