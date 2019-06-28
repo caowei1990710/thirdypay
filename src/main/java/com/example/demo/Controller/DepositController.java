@@ -1,30 +1,14 @@
 package com.example.demo.Controller;
 
 import com.example.demo.Model.*;
-import com.example.demo.Repository.DepositRespositpory;
 import com.example.demo.Service.BankcardService;
-import com.example.demo.Service.DepositService;
-import org.apache.http.HttpEntity;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.impl.client.CloseableHttpClient;
-import org.apache.http.impl.client.HttpClients;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
+import com.example.demo.Service.PlatformDepositService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
 import java.util.*;
 
 /**
@@ -40,9 +24,6 @@ public class DepositController {
 
     @Autowired
     BankcardService bankcardService;
-
-    @Autowired
-    DepositService depositService;
 
     @RequestMapping(value = "/Depositlist", method = {RequestMethod.POST})
     public Result addDepositlist(@RequestBody DepositList depositList) {
@@ -133,11 +114,6 @@ public class DepositController {
     @RequestMapping(value = "/receiveDepositr", method = {RequestMethod.POST})
     public Result receiveDepositr(TurnOn turnOn) {
         return bankcardService.setTurnOn(turnOn);
-    }
-
-    @RequestMapping(value = "/receiveDepositrq", method = {RequestMethod.GET, RequestMethod.POST})
-    public String receiveDepositrq(HttpServletRequest request) {
-        return depositService.receiveDepositrq(request);
     }
 
 

@@ -43,6 +43,8 @@ public class BankcardService {
     private BankCardRespositpory bankcardRespositpory;
     @Autowired
     private TurnOnRespositpory trunonrespositpory;
+    @Autowired
+    private PlatformDepositService platformDepositService;
 
     public Result saveDepositList(DepositList depositList) {
         for (int i = 0; i < depositList.getDepositRecords().size(); i++) {
@@ -67,7 +69,7 @@ public class BankcardService {
                     }
 //                        username = userList.get(0).getUserName();
                     depositRepository.save(deposit);
-                    if (depositCallBack(deposit)) {
+                    if (platformDepositService.depositCallBack(deposit)) {
                         deposit.setState("SUCCESS");
                         depositRepository.save(deposit);
                     }
@@ -147,10 +149,12 @@ public class BankcardService {
     public Result getAllBankCard() {
         return ResultUtil.success(bankcardRespositpory.findAlllist());
     }
+
     public Result getStateBankCard(String state) {
         return ResultUtil.success(bankcardRespositpory.findStatelist(state));
     }
-    //回調接口
+
+    //第四方回調接口
 //    @RequestMapping(value = "/depositCallBack", method = RequestMethod.GET)
     public boolean depositCallBack(Deposit deposit) {
         Map map = new HashMap<String, String>();
@@ -172,7 +176,7 @@ public class BankcardService {
         return checksuccessful(HttpUtil.get(url, map));
     }
 
-    //会员查询接口，校验有效账号
+    //第四方会员查询接口，校验有效账号
 //    @RequestMapping(value = "/checkAccount ", method = RequestMethod.GET)
     public boolean checkAccount(Deposit deposit) {
         Map map = new HashMap<String, String>();
@@ -186,6 +190,7 @@ public class BankcardService {
         return checksuccessful(HttpUtil.get(url, map));
     }
 
+    //第四方校验会员
     public Result checkStringAccount(String account) {
         Map map = new HashMap<String, String>();
         map.put("app_id", "1561193943194");                         //站长id，由中博支付分配

@@ -2,7 +2,10 @@ package com.example.demo.Service;
 
 import com.alibaba.fastjson.JSON;
 import com.example.demo.Model.Deposit;
+import com.example.demo.Model.PlatformDeposit;
+import com.example.demo.Model.ResultUtil;
 import com.example.demo.Repository.DepositRespositpory;
+import com.example.demo.Repository.PlatformDepositRespositpory;
 import com.example.demo.utils.HttpUtil;
 import com.example.demo.utils.MD5Utils;
 import com.example.demo.utils.QfpayUtil;
@@ -21,12 +24,12 @@ import java.net.URL;
 import java.util.*;
 
 @Service
-public class DepositService {
+public class PlatformDepositService {
 
-    static final Logger logger = LoggerFactory.getLogger(DepositService.class);
+    static final Logger logger = LoggerFactory.getLogger(PlatformDepositService.class);
 
     @Autowired
-    private DepositRespositpory depositRepository;
+    private PlatformDepositRespositpory platformDepositRespositpory;
 
     public String receiveDepositrq(HttpServletRequest request) {
 
@@ -45,17 +48,33 @@ public class DepositService {
             nvp.add(new BasicNameValuePair("banktype", "sdgf"));
 
             logger.debug("nvp:" + nvp.toString());
-            String fdsre = maps.get("banktype").toString();
-            String banktype = String.valueOf(dataMaps.get("banktype"));
-            String bankkey = String.valueOf(dataMaps.get("bankkey"));
-            String account = String.valueOf(dataMaps.get("account"));
-            String merchantno = String.valueOf(dataMaps.get("merchantno"));
-            String amount = String.valueOf(dataMaps.get("amount"));
-            String orderno = String.valueOf(dataMaps.get("orderno"));
-            String callbackurl = String.valueOf(dataMaps.get("callbackurl"));
-            String sign = String.valueOf(dataMaps.get("sign"));
+            String banktype = String.valueOf(dataMaps.get("banktype")).replace("[", "").replace("]", "");
+            String bankkey = String.valueOf(dataMaps.get("bankkey")).replace("[", "").replace("]", "");
+            String account = String.valueOf(dataMaps.get("account")).replace("[", "").replace("]", "");
+            String merchantno = String.valueOf(dataMaps.get("merchantno")).replace("[", "").replace("]", "");
+            String amount = String.valueOf(dataMaps.get("amount")).replace("[", "").replace("]", "");
+            String orderno = String.valueOf(dataMaps.get("orderno")).replace("[", "").replace("]", "");
+            String callbackurl = String.valueOf(dataMaps.get("callbackurl")).replace("[", "").replace("]", "");
+            String sign = String.valueOf(dataMaps.get("sign")).replace("[", "").replace("]", "");
+
+            PlatformDeposit platformDeposit = new PlatformDeposit();
+            platformDeposit.setBanktype(banktype);
+            platformDeposit.setBankkey(bankkey);
+            platformDeposit.setAccount(account);
+            platformDeposit.setMerchantno(merchantno);
+            platformDeposit.setAmount(amount);
+            platformDeposit.setOrderno(orderno);
+            platformDeposit.setCallbackurl(callbackurl);
+            platformDeposit.setSign(sign);
+
+            List<PlatformDeposit> PlatformDeposit = platformDepositRespositpory.getPlatformDeposit(orderno);
+            if (PlatformDeposit.size() > 0)
+                return "订单号已存在";
+
+            platformDepositRespositpory.save(platformDeposit);
+
             String data = "banktype=" + banktype + "&bankkey=" + bankkey + "&account=" + account + "&merchantno=" + merchantno + "&amount=" + amount + "&orderno=" + orderno + "&callbackurl=" + callbackurl + "&sign=" + sign;
-            data = data.replace("[", "").replace("]", "");
+//            data = data.replace("[", "").replace("]", "");
             System.out.println("url:" + "http://d1186.com/bankDeposit.html?" + data);
             //            URL url = new URL("http://www.baidu.com");
             logger.debug("url:" + "http://d1186.com/bankDeposit.html?" + data);
