@@ -26,6 +26,24 @@ public class UserList implements Serializable {
     private String bankCard;
     private String bankName;
     private String state;
+    private String callbackurl;//回调地址
+    private String orderno;//订单号
+
+    public String getCallbackurl() {
+        return callbackurl;
+    }
+
+    public void setCallbackurl(String callbackurl) {
+        this.callbackurl = callbackurl;
+    }
+
+    public String getOrderno() {
+        return orderno;
+    }
+
+    public void setOrderno(String orderno) {
+        this.orderno = orderno;
+    }
 
     public int getId() {
         return id;
@@ -84,6 +102,8 @@ public class UserList implements Serializable {
                 ", bankCard='" + bankCard + '\'' +
                 ", bankName='" + bankName + '\'' +
                 ", state='" + state + '\'' +
+                ", callbackurl='" + callbackurl + '\'' +
+                ", orderno='" + orderno + '\'' +
                 '}';
     }
 

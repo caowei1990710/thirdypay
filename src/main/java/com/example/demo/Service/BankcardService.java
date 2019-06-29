@@ -66,6 +66,8 @@ public class BankcardService {
                     if (userList.size() > 0) {
                         deposit.setUserName(userList.get(0).getUserName());
                         deposit.setPayBankCard(userList.get(0).getBankCard());
+                        deposit.setCallUrl(userList.get(0).getCallbackurl());
+                        deposit.setOrderno(userList.get(0).getOrderno());
                     }
 //                        username = userList.get(0).getUserName();
                     depositRepository.save(deposit);
@@ -204,6 +206,12 @@ public class BankcardService {
         if (!isVailue)
             return ResultUtil.error(401, "不是有效会员");
         return ResultUtil.success("检测成功");
+    }
+
+    //存储客人存款信息
+    public Result setDespositList() {
+
+        return ResultUtil.success();
     }
 
     public Result setTurnOn(TurnOn turnOn) {
