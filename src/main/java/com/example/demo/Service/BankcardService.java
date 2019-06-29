@@ -100,10 +100,14 @@ public class BankcardService {
         if (itemuserList.size() == 0)
             return ResultUtil.error(401, "未绑定账号");
         UserList useritem = itemuserList.get(0);
-        useritem.setRealName(userList.getRealName());
-        useritem.setBankCard(userList.getBankCard());
-        useritem.setBankName(userList.getBankName());
-        useritem.setOrderno(userList.getOrderno());
+        if (userList.getRealName() != null && !userList.getRealName().equals(""))
+            useritem.setRealName(userList.getRealName());
+        if (userList.getBankCard() != null && !userList.getBankCard().equals(""))
+            useritem.setBankCard(userList.getBankCard());
+        if (userList.getBankName() != null && !userList.getBankName().equals(""))
+            useritem.setBankName(userList.getBankName());
+        if (userList.getOrderno() != null && !userList.getOrderno().equals(""))
+            useritem.setOrderno(userList.getOrderno());
         useritem.setCallbackurl(userList.getCallbackurl());
         return ResultUtil.success(userListRespositpory.save(useritem));
     }
