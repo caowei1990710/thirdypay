@@ -103,6 +103,8 @@ public class BankcardService {
         useritem.setRealName(userList.getRealName());
         useritem.setBankCard(userList.getBankCard());
         useritem.setBankName(userList.getBankName());
+        useritem.setOrderno(userList.getOrderno());
+        useritem.setCallbackurl(userList.getCallbackurl());
         return ResultUtil.success(userListRespositpory.save(useritem));
     }
 
