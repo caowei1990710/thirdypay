@@ -25,7 +25,7 @@ public class HeartBeat {
     public void timerToNow(){
         String times = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
         System.out.println("HeartBeat now time:" + times);
-        logger.debug("HeartBeat now time:" + times);
+        logger.info("HeartBeat now time:" + times);
     }
 
 

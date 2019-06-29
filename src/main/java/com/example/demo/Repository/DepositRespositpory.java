@@ -5,12 +5,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 
+import java.io.Serializable;
 import java.util.List;
 
 /**
  * Created by snsoft on 16/6/2019.
  */
-public interface DepositRespositpory  extends JpaRepository<Deposit,Integer>,JpaSpecificationExecutor<Deposit> {
+public interface DepositRespositpory extends JpaRepository<Deposit,Integer>,JpaSpecificationExecutor<Deposit> {
     @Query(value = "select * from deposit  WHERE deposit_number = ?1", nativeQuery = true)
     Deposit findByDepositnumber(String depositNumber);
 

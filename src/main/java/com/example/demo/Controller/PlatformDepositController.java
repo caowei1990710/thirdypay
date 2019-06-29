@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @RestController
 public class PlatformDepositController {
@@ -23,9 +24,9 @@ public class PlatformDepositController {
     @Autowired
     PlatformDepositService platformDepositService;
 
-    @RequestMapping(value = "/receiveDepositrq", method = {RequestMethod.GET, RequestMethod.POST})
-    public String receiveDepositrq(HttpServletRequest request) {
-        return platformDepositService.receiveDepositrq(request);
+    @RequestMapping(value = "/receiveDepositrq.do", method = {RequestMethod.GET, RequestMethod.POST})
+    public String receiveDepositrq(HttpServletRequest request, HttpServletResponse response) {
+        return platformDepositService.receiveDepositrq(request,response);
     }
 
 
