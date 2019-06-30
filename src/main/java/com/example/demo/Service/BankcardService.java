@@ -164,7 +164,7 @@ public class BankcardService {
 //    @RequestMapping(value = "/depositCallBack", method = RequestMethod.GET)
     public boolean depositCallBack(Deposit deposit) {
         Map map = new HashMap<String, String>();
-        map.put("app_id", "1561193943194");                         //站长id，由中博支付分配
+        map.put("app_id", "1561293939922");                         //站长id，由中博支付分配
         map.put("account", deposit.getUserName());                  //中博所属系统下的会员账号
         map.put("money", deposit.getAmount().toString());                      //单位元（人民币），2位小数，最小支付金额为1.00
         map.put("order_no", deposit.getDepositNumber());            //站长系统订单号，该值需在商户系统内唯一，中博接口会校验该值是否唯一
@@ -186,7 +186,7 @@ public class BankcardService {
 //    @RequestMapping(value = "/checkAccount ", method = RequestMethod.GET)
     public boolean checkAccount(Deposit deposit) {
         Map map = new HashMap<String, String>();
-        map.put("app_id", "1561193943194");                         //站长id，由中博支付分配
+        map.put("app_id", "1561293939922");                         //站长id，由中博支付分配
         map.put("account", deposit.getUserName());                  //中博所属系统下的会员账号
 
         map.put("sign", md5Private(map, "8bb4bf843e284fc8b602f5faba77f29f"));
@@ -199,7 +199,7 @@ public class BankcardService {
     //第四方校验会员
     public Result checkStringAccount(String account) {
         Map map = new HashMap<String, String>();
-        map.put("app_id", "1561193943194");                         //站长id，由中博支付分配
+        map.put("app_id", "1561293939922");                         //站长id，由中博支付分配
         map.put("account", account);                  //中博所属系统下的会员账号
 
         map.put("sign", md5Private(map, "8bb4bf843e284fc8b602f5faba77f29f"));
@@ -263,7 +263,7 @@ public class BankcardService {
     }
 
     public Result depositresend(String depositid) {
-        if (!depositCallBack(depositRepository.findByDepositnumber(depositid)))
+        if (!platformDepositService.depositCallBack(depositRepository.findByDepositnumber(depositid)))
             return ResultUtil.error(401, "重发失败");
         return ResultUtil.success("重发成功");
     }
