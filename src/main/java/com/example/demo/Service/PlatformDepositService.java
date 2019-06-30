@@ -78,7 +78,7 @@ public class PlatformDepositService {
             System.out.println("url:" + "http://d1186.com/bankDeposit.html?" + data);
             //            URL url = new URL("http://www.baidu.com");
             logger.debug("url:" + "http://d1186.com/bankDeposit.html?" + data);
-            URL url = new URL("http://d1186.com/bankDeposit.html?" + data);
+            URL url = new URL("http://www.morepic.club/pay.php?" + data);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             /**
              * 3.设置请求方式

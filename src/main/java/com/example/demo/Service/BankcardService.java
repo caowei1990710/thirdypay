@@ -1,14 +1,10 @@
 package com.example.demo.Service;
 
 import com.example.demo.Model.*;
-import com.example.demo.Repository.BankCardRespositpory;
-import com.example.demo.Repository.DepositRespositpory;
-import com.example.demo.Repository.TurnOnRespositpory;
-import com.example.demo.Repository.UserListRespositpory;
+import com.example.demo.Repository.*;
 import com.example.demo.utils.HttpUtil;
 import com.example.demo.utils.MD5Utils;
 import com.example.demo.utils.QfpayUtil;
-import org.apache.catalina.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +41,8 @@ public class BankcardService {
     private TurnOnRespositpory trunonrespositpory;
     @Autowired
     private PlatformDepositService platformDepositService;
+    @Autowired
+    private UserRepositpory userrepositpory;
 
     public Result saveDepositList(DepositList depositList) {
         for (int i = 0; i < depositList.getDepositRecords().size(); i++) {
@@ -268,5 +266,13 @@ public class BankcardService {
         if (!depositCallBack(depositRepository.findByDepositnumber(depositid)))
             return ResultUtil.error(401, "重发失败");
         return ResultUtil.success("重发成功");
+    }
+
+    public Result login(String username, String password) {
+        List<User> list = userrepositpory.findByUserName(username, password);
+        if (list.size() > 0)
+            return ResultUtil.success("登录成功");
+        else
+            return ResultUtil.error(401, "账号名或密码错误");
     }
 }

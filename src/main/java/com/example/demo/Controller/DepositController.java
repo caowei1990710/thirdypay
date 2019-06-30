@@ -116,5 +116,8 @@ public class DepositController {
         return bankcardService.setTurnOn(turnOn);
     }
 
-
+    @RequestMapping(value = "/login", method = {RequestMethod.POST})
+    public Result login(User user) {
+        return bankcardService.login(user.getUserName(), user.getPassWord());
+    }
 }
