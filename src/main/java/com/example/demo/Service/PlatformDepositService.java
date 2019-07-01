@@ -132,6 +132,7 @@ public class PlatformDepositService implements Serializable {
         map.put("tradestatus", "1".equals(deposit.getSuccess()) ? "success" : "fail");                    //订单结果
 
         String sign = QfpayUtil.mapACSIIrank2(map, "8bb4bf843e284fc8b602f5faba77f29f");
+        logger.info("签名原串:" + sign);
         sign = DESUtil.desEncrypt(sign,"8bb4bf843e284fc8b602f5faba77f29f");
         logger.info("对称加密:" + sign);
         try {
@@ -155,10 +156,15 @@ public class PlatformDepositService implements Serializable {
         return issuccess;
     }
 
+    //仅第二方使用
     private boolean checksuccessful(String result) {
         logger.info("result:" + result);
-        Map maps = (Map) JSON.parse(result);
-        if ("TRUE".equals(maps.get("status").toString().toUpperCase())) {
+//        Map maps = (Map) JSON.parse(result);
+        /*if ("TRUE".equals(maps.get("status").toString().toUpperCase())) {
+            return true;
+        }*/
+
+        if (result.contains("success")){
             return true;
         }
         return false;
