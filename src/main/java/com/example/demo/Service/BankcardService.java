@@ -43,6 +43,8 @@ public class BankcardService {
     private PlatformDepositService platformDepositService;
     @Autowired
     private UserRepositpory userrepositpory;
+    @Autowired
+    private NoticeRespositpory noticeRespositpory;
 
     public Result saveDepositList(DepositList depositList) {
         for (int i = 0; i < depositList.getDepositRecords().size(); i++) {
@@ -82,6 +84,28 @@ public class BankcardService {
 
     public Result getDepositList() {
         return ResultUtil.success(depositRepository.findByDepositList());
+    }
+
+    public Result postNotice(Notice notice) {
+        Notice noticeitem = noticeRespositpory.findbytitle(notice.getTitle());
+        if (noticeitem == null)
+            noticeRespositpory.save(notice);
+        else {
+            noticeitem.setContent(notice.getContent());
+            noticeRespositpory.save(noticeitem);
+        }
+        return ResultUtil.success("成功");
+    }
+
+    public Result getNotice(String title) {
+        Notice noticeitem = noticeRespositpory.findbytitle(title);
+//        if (noticeitem == null)
+//            noticeRespositpory.save(notice);
+//        else {
+//            noticeitem.setContent(notice.getContent());
+//            noticeRespositpory.save(noticeitem);
+//        }
+        return ResultUtil.success(noticeitem);
     }
 
     public Result addUserList(UserList userList) {
@@ -214,8 +238,20 @@ public class BankcardService {
 
     //存储客人存款信息
     public Result setDespositList() {
-
         return ResultUtil.success();
+    }
+
+    public Result setStringTurn(String depositNumber, String remark) {
+        TurnOn turnOn = new TurnOn();
+        turnOn.setDepositNumber(depositNumber);
+        turnOn.setRemark(remark);
+        TurnOn itemtrinOn = new TurnOn();
+        itemtrinOn = trunonrespositpory.findBydepositNumber(depositNumber);
+        if (itemtrinOn == null)
+            return ResultUtil.success(trunonrespositpory.save(turnOn));
+        itemtrinOn.setRemark(remark);
+        trunonrespositpory.save(itemtrinOn);
+        return ResultUtil.success("存储成功");
     }
 
     public Result setTurnOn(TurnOn turnOn) {

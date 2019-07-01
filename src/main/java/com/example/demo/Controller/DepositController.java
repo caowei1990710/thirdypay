@@ -111,9 +111,25 @@ public class DepositController {
         return bankcardService.setTurnOn(turnOn);
     }
 
+    @RequestMapping(value = "/getTurnOnin", method = {RequestMethod.GET})
+    public Result seturnon(@RequestParam("depositNumber") String depositNumber, @RequestParam("remark") String remark) {
+        return bankcardService.setStringTurn(depositNumber, remark);
+    }
+
+
     @RequestMapping(value = "/receiveDepositr", method = {RequestMethod.POST})
     public Result receiveDepositr(TurnOn turnOn) {
         return bankcardService.setTurnOn(turnOn);
+    }
+
+    @RequestMapping(value = "/postNotice", method = {RequestMethod.POST})
+    public Result postNotice(Notice notice) {
+        return bankcardService.postNotice(notice);
+    }
+
+    @RequestMapping(value = "/getNotice", method = {RequestMethod.GET})
+    public Result getNotice(@RequestParam("title") String title) {
+        return bankcardService.getNotice(title);
     }
 
     @RequestMapping(value = "/login", method = {RequestMethod.POST})
