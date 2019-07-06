@@ -263,8 +263,8 @@ public class BankcardService {
         return ResultUtil.success(qrcode);
     }
 
-    public Result setAllQr(String value) {
-        userrepositpory.updatePlatformDeposit(value);
+    public Result setAllQr(String paySecret,String payqr) {
+        userrepositpory.updatePlatformDeposit(paySecret,payqr);
         /**
          * 对app的随机生成的code,输入并验证
          */
