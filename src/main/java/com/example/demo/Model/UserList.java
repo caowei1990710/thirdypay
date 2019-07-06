@@ -25,9 +25,65 @@ public class UserList implements Serializable {
     @Column(name = "bank_card", unique = true)
     private String bankCard;
     private String bankName;
+    private String secondrealName;
+    @Column(name = "secondbank_card", unique = true)
+    private String secondbankCard;
+    private String secondbankName;
+    private String thirdrealName;
+    @Column(name = "thirdbank_card", unique = true)
+    private String thirdbankCard;
+    private String thirdbankName;
     private String state;
     private String callbackurl;//回调地址
     private String orderno;//订单号
+
+    public String getSecondrealName() {
+        return secondrealName;
+    }
+
+    public void setSecondrealName(String secondrealName) {
+        this.secondrealName = secondrealName;
+    }
+
+    public String getThirdrealName() {
+        return thirdrealName;
+    }
+
+    public void setThirdrealName(String thirdrealName) {
+        this.thirdrealName = thirdrealName;
+    }
+
+    public String getSecondbankCard() {
+        return secondbankCard;
+    }
+
+    public void setSecondbankCard(String secondbankCard) {
+        this.secondbankCard = secondbankCard;
+    }
+
+    public String getSecondbankName() {
+        return secondbankName;
+    }
+
+    public void setSecondbankName(String secondbankName) {
+        this.secondbankName = secondbankName;
+    }
+
+    public String getThirdbankCard() {
+        return thirdbankCard;
+    }
+
+    public void setThirdbankCard(String thirdbankCard) {
+        this.thirdbankCard = thirdbankCard;
+    }
+
+    public String getThirdbankName() {
+        return thirdbankName;
+    }
+
+    public void setThirdbankName(String thirdbankName) {
+        this.thirdbankName = thirdbankName;
+    }
 
     public String getCallbackurl() {
         return callbackurl;

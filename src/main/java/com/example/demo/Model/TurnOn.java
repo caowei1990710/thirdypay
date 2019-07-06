@@ -19,6 +19,16 @@ public class TurnOn implements Serializable {
     private int id;
     private String depositNumber;
     private String remark;
+    private String result;
+
+    public String getResult() {
+        return result;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
+    }
+
     private static final long serialVersionUID = 7247714666080613254L;
 
     public int getId() {

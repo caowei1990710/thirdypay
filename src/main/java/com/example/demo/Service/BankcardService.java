@@ -45,6 +45,8 @@ public class BankcardService {
     private UserRepositpory userrepositpory;
     @Autowired
     private NoticeRespositpory noticeRespositpory;
+    @Autowired
+    private PayProposalRespositpory payProposalRespositpory;
 
     public Result saveDepositList(DepositList depositList) {
         for (int i = 0; i < depositList.getDepositRecords().size(); i++) {
@@ -61,13 +63,17 @@ public class BankcardService {
 //                        wechatitemRepository.save(wechatItem);
 //                    }
                 if (depositRepository.findByDepositnumber(deposit.getDepositNumber()) == null) {
-                    List<UserList> userList = userListRespositpory.findByRealName(deposit.getPayAccount());
+                    UserList userList = userListRespositpory.findByRealName(deposit.getPayAccount());
+                    if (userList == null)
+                        userList = userListRespositpory.findBysecondrealName(deposit.getPayAccount());
+                    if (userList == null)
+                        userList = userListRespositpory.findBythirdrealName(deposit.getPayAccount());
 //                    String username = "";
-                    if (userList.size() > 0) {
-                        deposit.setUserName(userList.get(0).getUserName());
-                        deposit.setPayBankCard(userList.get(0).getBankCard());
-                        deposit.setCallUrl(userList.get(0).getCallbackurl());
-                        deposit.setOrderno(userList.get(0).getOrderno());
+                    if (userList != null) {
+                        deposit.setUserName(userList.getUserName());
+                        deposit.setPayBankCard(userList.getBankCard());
+                        deposit.setCallUrl(userList.getCallbackurl());
+                        deposit.setOrderno(userList.getOrderno());
                     }
 //                        username = userList.get(0).getUserName();
                     depositRepository.save(deposit);
@@ -110,18 +116,92 @@ public class BankcardService {
 
     public Result addUserList(UserList userList) {
         //userListRespositpory
-        List<UserList> itemuser = userListRespositpory.findByRealName(userList.getRealName());
-        if (itemuser.size() == 0)
+        UserList itemuser = userListRespositpory.findByRealName(userList.getRealName());
+        if (itemuser == null)
             return ResultUtil.success(userListRespositpory.save(userList));
-        else
+        else {
             return ResultUtil.error(401, "名字已经已绑定");
+        }
+    }
+
+    public Result addMoreUserList(UserList userList) {
+        UserList userlistitme = userListRespositpory.findByUserName(userList.getUserName());
+        if (userlistitme == null)
+            return ResultUtil.success(userListRespositpory.save(userList));
+        UserList itemuserlist = null;
+        if (userList.getRealName() != null) {
+            if (itemuserlist == null)
+                itemuserlist = userListRespositpory.findByRealName(userList.getRealName());
+            if (itemuserlist == null)
+                itemuserlist = userListRespositpory.findBysecondrealName(userList.getRealName());
+            if (itemuserlist == null)
+                itemuserlist = userListRespositpory.findBythirdrealName(userList.getRealName());
+
+        } else if (userList.getSecondrealName() != null) {
+            if (itemuserlist == null)
+                itemuserlist = userListRespositpory.findByRealName(userList.getSecondrealName());
+            if (itemuserlist == null)
+                itemuserlist = userListRespositpory.findBysecondrealName(userList.getSecondrealName());
+            if (itemuserlist == null)
+                itemuserlist = userListRespositpory.findBythirdrealName(userList.getSecondrealName());
+        } else if (userList.getThirdrealName() != null) {
+            if (itemuserlist == null)
+                itemuserlist = userListRespositpory.findByRealName(userList.getThirdrealName());
+            if (itemuserlist == null)
+                itemuserlist = userListRespositpory.findBysecondrealName(userList.getThirdrealName());
+            if (itemuserlist == null)
+                itemuserlist = userListRespositpory.findBythirdrealName(userList.getThirdrealName());
+        }
+        if (itemuserlist == null)
+            return ResultUtil.success(userListRespositpory.save(updateUserListitem(userList, userlistitme)));
+        else if (itemuserlist.getUserName().equals(userlistitme.getUserName()))
+            return ResultUtil.success(userListRespositpory.save(updateUserListitem(userList, userlistitme)));
+        else
+            return ResultUtil.error(401, "名字已绑定");
+//        if (itemuserlist == null)
+//            return ResultUtil.success(userListRespositpory.save(userList));
+//        else {
+//            UserList useritem = itemuserlist;
+//            if (userList.getUserName().equals(useritem.getUserName()))
+//                return ResultUtil.success(userListRespositpory.save(updateUserListitem(userList, useritem)));
+//            else
+//                return ResultUtil.error(401, "名字已绑定");
+//        }
+    }
+
+//    public Result updateMoreUserList(UserList userList) {
+//        return ResultUtil.success();
+//    }
+
+    public UserList updateUserListitem(UserList userList, UserList useritem) {
+        if (userList.getRealName() != null && !userList.getRealName().equals(""))
+            useritem.setRealName(userList.getRealName());
+        if (userList.getBankCard() != null && !userList.getBankCard().equals(""))
+            useritem.setBankCard(userList.getBankCard());
+        if (userList.getBankName() != null && !userList.getBankName().equals(""))
+            useritem.setBankName(userList.getBankName());
+        if (userList.getSecondrealName() != null && !userList.getSecondrealName().equals(""))
+            useritem.setSecondrealName(userList.getSecondrealName());
+        if (userList.getSecondbankCard() != null && !userList.getSecondbankCard().equals(""))
+            useritem.setSecondbankCard(userList.getSecondbankCard());
+        if (userList.getSecondbankName() != null && !userList.getSecondbankName().equals(""))
+            useritem.setSecondbankName(userList.getSecondbankName());
+        if (userList.getThirdrealName() != null && !userList.getThirdrealName().equals(""))
+            useritem.setThirdrealName(userList.getThirdrealName());
+        if (userList.getThirdbankCard() != null && !userList.getThirdbankCard().equals(""))
+            useritem.setThirdbankCard(userList.getThirdbankCard());
+        if (userList.getThirdbankName() != null && !userList.getThirdbankName().equals(""))
+            useritem.setThirdbankName(userList.getThirdbankName());
+        if (userList.getOrderno() != null && !userList.getOrderno().equals(""))
+            useritem.setOrderno(userList.getOrderno());
+        return useritem;
     }
 
     public Result updateUserList(UserList userList) {
-        List<UserList> itemuserList = userListRespositpory.findByUserName(userList.getUserName());
-        if (itemuserList.size() == 0)
+        UserList itemuserList = userListRespositpory.findByUserName(userList.getUserName());
+        if (itemuserList == null)
             return ResultUtil.error(401, "未绑定账号");
-        UserList useritem = itemuserList.get(0);
+        UserList useritem = itemuserList;
         if (userList.getRealName() != null && !userList.getRealName().equals(""))
             useritem.setRealName(userList.getRealName());
         if (userList.getBankCard() != null && !userList.getBankCard().equals(""))
@@ -254,6 +334,21 @@ public class BankcardService {
         return ResultUtil.success("存储成功");
     }
 
+    public Result setNewStringTurn(String depositNumber, String remark, String result) {
+        TurnOn turnOn = new TurnOn();
+        turnOn.setDepositNumber(depositNumber);
+        turnOn.setRemark(remark);
+        turnOn.setResult(result);
+        TurnOn itemtrinOn = new TurnOn();
+        itemtrinOn = trunonrespositpory.findBydepositNumber(depositNumber);
+        if (itemtrinOn == null)
+            return ResultUtil.success(trunonrespositpory.save(turnOn));
+        itemtrinOn.setRemark(remark);
+        itemtrinOn.setResult(result);
+        trunonrespositpory.save(itemtrinOn);
+        return ResultUtil.success("存储成功");
+    }
+
     public Result setTurnOn(TurnOn turnOn) {
         TurnOn itemtrinOn = new TurnOn();
         itemtrinOn = trunonrespositpory.findBydepositNumber(turnOn.getDepositNumber());
@@ -263,6 +358,25 @@ public class BankcardService {
         trunonrespositpory.save(itemtrinOn);
         return ResultUtil.success("存储成功");
 //        trunonrespositpory.findBydepositNumber(turnOn.getDepositNumber())
+    }
+
+    public Result setProposal(PayProposal payProposal) {
+        payProposal.setRemark("default");
+        return ResultUtil.success(payProposalRespositpory.save(payProposal));
+    }
+
+    public Result getProposal() {
+//        payProposal.setRemark("default");
+        return ResultUtil.success(payProposalRespositpory.getPlatformDeposit());
+    }
+
+    public Result getProposalitem(String proposalId) {
+//        payProposal.setRemark("default");
+        return ResultUtil.success(payProposalRespositpory.getPlatformDepositbydepositNumber(proposalId));
+    }
+
+    public Result updateProposal(String remark, String proposalId) {
+        return ResultUtil.success(payProposalRespositpory.updatePlatformDeposit(remark, proposalId));
     }
 
     public Result getTurnOn(String depositNumber) {

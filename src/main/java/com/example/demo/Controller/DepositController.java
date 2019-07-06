@@ -1,5 +1,6 @@
 package com.example.demo.Controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.example.demo.Model.*;
 import com.example.demo.Service.BankcardService;
 import com.example.demo.Service.PlatformDepositService;
@@ -86,6 +87,15 @@ public class DepositController {
         return bankcardService.addUserList(userList);
     }
 
+    @RequestMapping(value = "/addmorebank", method = {RequestMethod.POST})
+    public Result addMoreUserList(UserList userList) {
+        return bankcardService.addMoreUserList(userList);
+    }
+
+    //    @RequestMapping(value = "/updatemorebank", method = {RequestMethod.POST})
+//    public Result updateMoreUserList(UserList userList) {
+//        return bankcardService.addMoreUserList(userList);
+//    }
     @RequestMapping(value = "/updateuser", method = {RequestMethod.PUT})
     public Result updateUserList(UserList userList) {
         return bankcardService.updateUserList(userList);
@@ -111,11 +121,58 @@ public class DepositController {
         return bankcardService.setTurnOn(turnOn);
     }
 
+    /**
+     * 创建日期:2018年4月6日<br/>
+     * 代码创建:黄聪<br/>
+     * 功能描述:通过request的方式来获取到json数据<br/>
+     *
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/json/setTurnOn", method = RequestMethod.POST, produces = "application/json;charset=UTF-8")
+    public Result getByJSON(@RequestBody JSONObject jsonParam) {
+        // 直接将json信息打印出来
+        System.out.println(jsonParam.toJSONString());
+
+//        // 将获取的json数据封装一层，然后在给返回
+//        JSONObject result = new JSONObject();
+//        result.put("msg", "ok");
+//        result.put("method", "json");
+//        result.put("data", jsonParam);
+//        jsonParam.get("remark");
+//        jsonParam.get("depositNumber");
+        String depositNumber = "", remark = "", result = "";
+        if (jsonParam.get("depositNumber") != null)
+            depositNumber = jsonParam.get("depositNumber").toString();
+        if (jsonParam.get("remark") != null)
+            remark = jsonParam.get("remark").toString();
+        if (jsonParam.get("result") != null)
+            result = jsonParam.get("result").toString();
+        return bankcardService.setNewStringTurn(depositNumber, remark, result);
+    }
+
     @RequestMapping(value = "/getTurnOnin", method = {RequestMethod.GET})
     public Result seturnon(@RequestParam("depositNumber") String depositNumber, @RequestParam("remark") String remark) {
         return bankcardService.setStringTurn(depositNumber, remark);
     }
 
+    @RequestMapping(value = "/setProposal", method = {RequestMethod.POST})
+    public Result receiveDepositr(PayProposal payProposal) {
+        return bankcardService.setProposal(payProposal);
+    }
+
+    @RequestMapping(value = "/getProposal", method = {RequestMethod.GET})
+    public Result getDepositr() {
+        return bankcardService.getProposal();
+    }
+    @RequestMapping(value = "/getProposalid", method = {RequestMethod.GET})
+    public Result getDepositrid(@RequestParam("proposalId") String proposalId) {
+        return bankcardService.getProposalitem(proposalId);
+    }
+    @RequestMapping(value = "/updateProposal", method = {RequestMethod.GET})
+    public Result updateDepositr(@RequestParam("remark") String remark, @RequestParam("proposalId") String proposalId) {
+        return bankcardService.updateProposal(remark, proposalId);
+    }
 
     @RequestMapping(value = "/receiveDepositr", method = {RequestMethod.POST})
     public Result receiveDepositr(TurnOn turnOn) {
