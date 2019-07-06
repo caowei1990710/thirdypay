@@ -89,7 +89,10 @@ public class DepositController {
     public Result getQr(String value) {
         return bankcardService.setQr(value);
     }
-
+    @GetMapping(value = "/setAllQr")
+    public Result setAllQr(String value) {
+        return bankcardService.setAllQr(value);
+    }
     @GetMapping(value = "/deleteuserid")
     public Result deleteuserid(String id) {
         return bankcardService.deleteUserlist(id);

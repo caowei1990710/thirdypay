@@ -263,6 +263,14 @@ public class BankcardService {
         return ResultUtil.success(qrcode);
     }
 
+    public Result setAllQr(String value) {
+        userrepositpory.updatePlatformDeposit(value);
+        /**
+         * 对app的随机生成的code,输入并验证
+         */
+        return ResultUtil.success("修改成功");
+    }
+
     public Result updateUserList(Deposit deposit) {
         Deposit itemdeposit = depositRepository.findOne(deposit.getId());
         itemdeposit.setUserName(deposit.getUserName());
