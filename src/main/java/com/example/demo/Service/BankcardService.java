@@ -81,6 +81,7 @@ public class BankcardService {
                     if (platformDepositService.depositCallBack(deposit)) {
                         deposit.setState("SUCCESS");
                         depositRepository.save(deposit);
+                        platformDepositService.updateByOrderno(deposit);
                     }
                 }
 
