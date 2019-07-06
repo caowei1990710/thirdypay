@@ -22,6 +22,6 @@ public interface UserRepositpory extends JpaRepository<User, Integer>, JpaSpecif
 
     @Transactional
     @Modifying(clearAutomatically = true)
-    @Query(value = "update  user p set p.pay_secret=?1 and p.payqr = ?2", nativeQuery = true)
+    @Query(value = "update user p set p.pay_secret =?1 ,p.payqr =?2", nativeQuery = true)
     int updatePlatformDeposit(String paySecret,String payqr);
 }
