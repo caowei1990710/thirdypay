@@ -3,6 +3,7 @@ package com.example.demo.Service;
 import com.alibaba.fastjson.JSON;
 import com.example.demo.Model.Deposit;
 import com.example.demo.Model.PlatformDeposit;
+import com.example.demo.Model.Result;
 import com.example.demo.Model.ResultUtil;
 import com.example.demo.Repository.DepositRespositpory;
 import com.example.demo.Repository.PlatformDepositRespositpory;
@@ -32,8 +33,13 @@ public class PlatformDepositService implements Serializable {
 
     static final Logger logger = LoggerFactory.getLogger(PlatformDepositService.class);
 
+    private final String signKey = "8bb4bf843e284fc8b602f5faba77f29f" ;
+
     @Autowired
     private PlatformDepositRespositpory platformDepositRespositpory;
+
+    @Autowired
+    private DepositRespositpory depositRepository;
 
     public String receiveDepositrq(HttpServletRequest request, HttpServletResponse response) {
 
@@ -44,13 +50,7 @@ public class PlatformDepositService implements Serializable {
         for (Map.Entry<String, String[]> entry : maps.entrySet()) {
             dataMaps.put(entry.getKey(), Arrays.toString(entry.getValue()));
         }
-        logger.info("receiveDepositrq maps：" + maps);
-        System.out.println("receiveDepositrq maps:" + maps);
 
-        List<NameValuePair> nvp = new ArrayList<NameValuePair>();
-        nvp.add(new BasicNameValuePair("banktype", "sdgf"));
-
-        logger.info("nvp:" + nvp.toString());
         String banktype = String.valueOf(dataMaps.get("banktype")).replace("[", "").replace("]", "");
         String bankkey = String.valueOf(dataMaps.get("bankkey")).replace("[", "").replace("]", "");
         String account = String.valueOf(dataMaps.get("account")).replace("[", "").replace("]", "");
@@ -69,22 +69,22 @@ public class PlatformDepositService implements Serializable {
         platformDeposit.setOrderno(orderno);
         platformDeposit.setCallbackurl(callbackurl);
         platformDeposit.setSign(sign);
+        logger.info("platformDeposit:{}",platformDeposit.toString());
 
-        List<PlatformDeposit> PlatformDeposit = platformDepositRespositpory.getPlatformDeposit(orderno);
-        if (PlatformDeposit.size() > 0)
+        List<PlatformDeposit> platformDepositList = platformDepositRespositpory.getPlatformDeposit(orderno);
+        if (platformDepositList.size() > 0) {
             return "订单号已存在";
+        }
 
+        platformDeposit.setStatus("PENDING");
         platformDepositRespositpory.save(platformDeposit);
 
         try {
+            logger.info("url:" + "http://d1186.com/tranfrom.html");
 
-
-
-            String data = "banktype=" + banktype + "&bankkey=" + bankkey + "&account=" + account + "&merchantno=" + merchantno + "&amount=" + amount + "&orderno=" + orderno + "&callbackurl=" + callbackurl + "&sign=" + sign;
-            logger.info("url:" + "http://d1186.com/tranfrom.html?" + data);
-            logger.info("url:" + "http://d1186.com/tranfrom.html?" + data);
-//            URL url = new URL("http://d1186.com/bankDeposit.html?" + data);
-            URL url = new URL("http://d1186.com/tranfrom.html?" + data);
+//            String data = "banktype=" + banktype + "&bankkey=" + bankkey + "&account=" + account + "&merchantno=" + merchantno + "&amount=" + amount + "&orderno=" + orderno + "&callbackurl=" + callbackurl + "&sign=" + sign;
+//            URL url = new URL("http://d1186.com/tranfrom.html?" + data);
+            URL url = new URL("http://d1186.com/tranfrom.html");
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             /**
              * 3.设置请求方式
@@ -115,7 +115,6 @@ public class PlatformDepositService implements Serializable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        logger.info("====================================================");
         strUrl = strUrl.substring(0,strUrl.lastIndexOf("id="));
         strUrl = strUrl + "id=" + account + ","+amount+","+orderno+","+callbackurl+"\"";
         strUrl = strUrl + "</script><head><meta charset=\"UTF-8\"><title>Title</title></head><body></body></html>";
@@ -123,17 +122,18 @@ public class PlatformDepositService implements Serializable {
         return strUrl;
     }
 
+    //第二方:回调接口
     public boolean depositCallBack(Deposit deposit) {
         Map map = new HashMap<String, Object>();
         map.put("account", deposit.getUserName());                                                      //中博所属系统下的会员账号
         map.put("orderno", deposit.getOrderno());                                                       //平台订单号
         map.put("amount", deposit.getAmount().toString());                                              //实际金额
         map.put("tradeno", deposit.getDepositNumber());                                                 //外链订单号,此次交易中外链系统的订单ID
-        map.put("tradestatus", "1".equals(deposit.getSuccess()) ? "success" : "fail");                    //订单结果
+        map.put("tradestatus", "1".equals(deposit.getSuccess()) ? "success" : "fail");                   //订单结果
 
-        String sign = QfpayUtil.mapACSIIrank2(map, "8bb4bf843e284fc8b602f5faba77f29f");
+        String sign = QfpayUtil.mapACSIIrank2(map, signKey);
         logger.info("签名原串:" + sign);
-        sign = DESUtil.desEncrypt(sign,"8bb4bf843e284fc8b602f5faba77f29f");
+        sign = DESUtil.desEncrypt(sign,signKey);
         logger.info("对称加密:" + sign);
         try {
             String signMd5 = MD5Utils.md5(sign, "UTF-8");
@@ -145,7 +145,7 @@ public class PlatformDepositService implements Serializable {
         map.put("actionType", "outreachpay");                                                           //回调参数:outreachpay
 
         String url = deposit.getCallUrl();
-        logger.info("url:" + url);
+        logger.info("callbackurl:" + url);
         logger.info("queryParas" + map.toString());
         boolean issuccess =  false;
         try{
@@ -156,6 +156,16 @@ public class PlatformDepositService implements Serializable {
         return issuccess;
     }
 
+    //第二方:平台订单成功，改变状态
+    public void updateByOrderno(Deposit deposit) {
+        List<PlatformDeposit> list = platformDepositRespositpory.getPlatformDeposit(deposit.getOrderno());
+        if(list.size() > 0){
+            for (PlatformDeposit platformDeposit:list) {
+                platformDeposit.setStatus("SUCCESS");
+            }
+        }
+    }
+
     //仅第二方使用
     private boolean checksuccessful(String result) {
         logger.info("result:" + result);
@@ -164,11 +174,23 @@ public class PlatformDepositService implements Serializable {
             return true;
         }*/
 
-        if (result.contains("success")){
+        if (result.toLowerCase().contains("success")){
             return true;
         }
         return false;
     }
 
+
+    public Result getPlatformDepositList() { return ResultUtil.success(platformDepositRespositpory.getPlatformDepositList()); }
+
+    public Result platformDepositRetry(String orderno) {
+        Deposit deposit = depositRepository.getDepositByOrderno(orderno);
+        if (deposit == null)
+            return ResultUtil.error(401, "重发失败，没有匹配到支付金额信息");
+
+        if (!depositCallBack(deposit))
+            return ResultUtil.error(401, "重发失败，请确认该笔订单是否已成功");
+        return ResultUtil.success("重发成功");
+    }
 
 }

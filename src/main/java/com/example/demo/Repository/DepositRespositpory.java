@@ -21,4 +21,7 @@ public interface DepositRespositpory extends JpaRepository<Deposit,Integer>,JpaS
 
     @Query(value = "select * from deposit", nativeQuery = true)
     List<Deposit> getByDepositList();
+
+    @Query(value = "select * from deposit  WHERE orderno = ?1", nativeQuery = true)
+    Deposit getDepositByOrderno(String orderno);
 }

@@ -20,6 +20,7 @@ public class PlatformDeposit {
     private String orderno;
     private String callbackurl;
     private String sign;
+    private String status;
 
     public int getId() {
         return id;
@@ -93,6 +94,10 @@ public class PlatformDeposit {
         this.sign = sign;
     }
 
+    public String getStatus() { return status; }
+
+    public void setStatus(String status) {  this.status = status; }
+
     @Override
     public String toString() {
         return "PlatformDeposit{" +
@@ -105,6 +110,7 @@ public class PlatformDeposit {
                 ", orderno='" + orderno + '\'' +
                 ", callbackurl='" + callbackurl + '\'' +
                 ", sign='" + sign + '\'' +
+                ", status='" + status + '\'' +
                 '}';
     }
 }
