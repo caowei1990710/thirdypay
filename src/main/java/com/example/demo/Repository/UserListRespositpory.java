@@ -11,12 +11,15 @@ import java.util.List;
 /**
  * Created by snsoft on 22/6/2019.
  */
-public interface UserListRespositpory extends JpaRepository<UserList,Integer>,JpaSpecificationExecutor<UserList> {
+public interface UserListRespositpory extends JpaRepository<UserList, Integer>, JpaSpecificationExecutor<UserList> {
     @Query(value = "select * from user_list  WHERE user_name = ?1", nativeQuery = true)
     UserList findByUserName(String username);
 
     @Query(value = "select * from user_list  WHERE real_name = ?1", nativeQuery = true)
     UserList findByRealName(String realname);
+
+    @Query(value = "select * from user_list  ORDER BY id DESC limit 500", nativeQuery = true)
+    List<UserList> findByUserList();
 
     @Query(value = "select * from user_list  WHERE bank_card = ?1", nativeQuery = true)
     UserList findByBankCard(String bankcard);

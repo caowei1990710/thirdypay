@@ -21,6 +21,25 @@ public class User implements Serializable {
     private String passWord;//密码
     private Date createTime;//创建时间
     private Date updateTime;//更新时间
+    private String paySecret;//谷歌验证密码
+    private String payqr;//条形码
+
+    public String getPaySecret() {
+        return paySecret;
+    }
+
+    public void setPaySecret(String paySecret) {
+        this.paySecret = paySecret;
+    }
+
+    public String getPayqr() {
+        return payqr;
+    }
+
+    public void setPayqr(String payqr) {
+        this.payqr = payqr;
+    }
+
     private static final long serialVersionUID = 7247714666080613254L;
 
     public int getId() {
@@ -71,6 +90,8 @@ public class User implements Serializable {
                 ", passWord='" + passWord + '\'' +
                 ", createTime=" + createTime +
                 ", updateTime=" + updateTime +
+                ", paySecret=" + paySecret +
+                ", payqr=" + payqr +
                 '}';
     }
 

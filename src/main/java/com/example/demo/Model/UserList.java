@@ -37,6 +37,7 @@ public class UserList implements Serializable {
     private String callbackurl;//回调地址
     private String orderno;//订单号
 
+
     public String getSecondrealName() {
         return secondrealName;
     }

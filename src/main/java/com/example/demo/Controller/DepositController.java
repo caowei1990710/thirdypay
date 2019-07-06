@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.example.demo.Model.*;
 import com.example.demo.Service.BankcardService;
 import com.example.demo.Service.PlatformDepositService;
+import com.example.demo.utils.GoogleAuthenticator;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,6 +81,36 @@ public class DepositController {
     @RequestMapping(value = "/getbank", method = {RequestMethod.POST})
     public Result addUserList(@RequestParam("userName") String userList) {
         return bankcardService.getUserList(userList);
+    }
+
+
+
+    @GetMapping(value = "/getQr")
+    public Result getQr(String value) {
+        return bankcardService.setQr(value);
+    }
+
+    @GetMapping(value = "/deleteuserid")
+    public Result deleteuserid(String id) {
+        return bankcardService.deleteUserlist(id);
+    }
+
+    @GetMapping(value = "/getAuthictor")
+    public Result getCtor(@RequestParam("code") String code, @RequestParam("secret") String secret) {
+        long t = System.currentTimeMillis();
+        GoogleAuthenticator ga = new GoogleAuthenticator();
+        ga.setWindowSize(5);
+        boolean r = ga.check_code(secret, Long.parseLong(code), t);
+        System.out.println("检查code是否正确？" + r);
+        if (r)
+            return ResultUtil.success(200, "验证成功");
+        else
+            return ResultUtil.error(400, "验证失败");
+    }
+
+    @RequestMapping(value = "/getbanklist", method = {RequestMethod.GET})
+    public Result addUserList() {
+        return bankcardService.getAllUserlist();
     }
 
     @RequestMapping(value = "/addbank", method = {RequestMethod.POST})
@@ -165,10 +196,12 @@ public class DepositController {
     public Result getDepositr() {
         return bankcardService.getProposal();
     }
+
     @RequestMapping(value = "/getProposalid", method = {RequestMethod.GET})
     public Result getDepositrid(@RequestParam("proposalId") String proposalId) {
         return bankcardService.getProposalitem(proposalId);
     }
+
     @RequestMapping(value = "/updateProposal", method = {RequestMethod.GET})
     public Result updateDepositr(@RequestParam("remark") String remark, @RequestParam("proposalId") String proposalId) {
         return bankcardService.updateProposal(remark, proposalId);

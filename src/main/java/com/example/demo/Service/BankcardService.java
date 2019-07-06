@@ -2,6 +2,7 @@ package com.example.demo.Service;
 
 import com.example.demo.Model.*;
 import com.example.demo.Repository.*;
+import com.example.demo.utils.GoogleAuthenticator;
 import com.example.demo.utils.HttpUtil;
 import com.example.demo.utils.MD5Utils;
 import com.example.demo.utils.QfpayUtil;
@@ -236,6 +237,32 @@ public class BankcardService {
         return ResultUtil.success(userListRespositpory.findByUserName(userName));
     }
 
+    public Result getAllUserlist() {
+        return ResultUtil.success(userListRespositpory.findByUserList());
+    }
+
+    public Result deleteUserlist(String id) {
+        userListRespositpory.delete(Integer.valueOf(id));
+        return ResultUtil.success("删除成功");
+    }
+
+    public Result setQr(String value) {
+        User agent = userrepositpory.findByUserNameitem(value);
+        if (agent == null)
+            return ResultUtil.error(400, "未找到账号");
+        String secret = GoogleAuthenticator.generateSecretKey();
+        // 把这个qrcode生成二维码，用google身份验证器扫描二维码就能添加成功
+        String qrcode = GoogleAuthenticator.getQRBarcode(value, secret);
+        System.out.println("qrcode:" + qrcode + ",key:" + secret);
+        agent.setPaySecret(secret);
+        agent.setPayqr(qrcode);
+        userrepositpory.save(agent);
+        /**
+         * 对app的随机生成的code,输入并验证
+         */
+        return ResultUtil.success(qrcode);
+    }
+
     public Result updateUserList(Deposit deposit) {
         Deposit itemdeposit = depositRepository.findOne(deposit.getId());
         itemdeposit.setUserName(deposit.getUserName());
@@ -421,7 +448,7 @@ public class BankcardService {
     public Result login(String username, String password) {
         List<User> list = userrepositpory.findByUserName(username, password);
         if (list.size() > 0)
-            return ResultUtil.success("登录成功");
+            return ResultUtil.success(list.get(0));
         else
             return ResultUtil.error(401, "账号名或密码错误");
     }
