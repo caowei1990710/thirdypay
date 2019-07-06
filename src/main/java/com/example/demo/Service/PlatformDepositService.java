@@ -185,8 +185,9 @@ public class PlatformDepositService implements Serializable {
 
     public Result platformDepositRetry(String orderno) {
         Deposit deposit = depositRepository.getDepositByOrderno(orderno);
+        logger.info("platformDepositRetry deposit{}:",deposit);
         if (deposit == null)
-            return ResultUtil.error(401, "重发失败，没有匹配到支付金额信息");
+            return ResultUtil.error(401, "重发失败，没有匹配到支付金额信息,请确认是否收到款");
 
         if (!depositCallBack(deposit))
             return ResultUtil.error(401, "重发失败，请确认该笔订单是否已成功");
