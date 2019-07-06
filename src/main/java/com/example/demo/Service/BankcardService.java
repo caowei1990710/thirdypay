@@ -414,7 +414,7 @@ public class BankcardService {
 
     public Result depositresend(String depositid) {
         if (!platformDepositService.depositCallBack(depositRepository.findByDepositnumber(depositid)))
-            return ResultUtil.error(401, "重发失败");
+            return ResultUtil.error(401, "重发失败，请确认该笔订单是否已成功");
         return ResultUtil.success("重发成功");
     }
 
