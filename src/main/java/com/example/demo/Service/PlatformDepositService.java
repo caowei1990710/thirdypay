@@ -162,6 +162,8 @@ public class PlatformDepositService implements Serializable {
         if(list.size() > 0){
             for (PlatformDeposit platformDeposit:list) {
                 platformDeposit.setStatus("SUCCESS");
+                platformDepositRespositpory.save(platformDeposit);
+                logger.info("platformDeposit:{}",platformDeposit);
             }
         }
     }
@@ -188,10 +190,14 @@ public class PlatformDepositService implements Serializable {
         logger.info("platformDepositRetry deposit{}:",deposit);
         if (deposit == null)
             return ResultUtil.error(401, "重发失败，没有匹配到支付金额信息,请确认是否收到款");
-
-        if (!depositCallBack(deposit))
+        if (!depositCallBack(deposit)) {
+            updateByOrderno(deposit);
+            deposit.setState("SUCCESS");
+            depositRepository.save(deposit);
             return ResultUtil.error(401, "重发失败，请确认该笔订单是否已成功");
-        return ResultUtil.success("重发成功");
+        }else {
+            return ResultUtil.success("重发成功");
+        }
     }
 
 }
