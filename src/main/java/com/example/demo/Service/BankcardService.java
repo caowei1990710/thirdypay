@@ -128,8 +128,8 @@ public class BankcardService {
 
     public Result addMoreUserList(UserList userList) {
         UserList userlistitme = userListRespositpory.findByUserName(userList.getUserName());
-        if (userlistitme == null)
-            return ResultUtil.success(userListRespositpory.save(userList));
+//        if (userlistitme == null)
+//            return ResultUtil.success(userListRespositpory.save(userList));
         UserList itemuserlist = null;
         if (userList.getRealName() != null) {
             if (itemuserlist == null)
@@ -154,9 +154,12 @@ public class BankcardService {
             if (itemuserlist == null)
                 itemuserlist = userListRespositpory.findBythirdrealName(userList.getThirdrealName());
         }
-        if (itemuserlist == null)
-            return ResultUtil.success(userListRespositpory.save(updateUserListitem(userList, userlistitme)));
-        else if (itemuserlist.getUserName().equals(userlistitme.getUserName()))
+        if (itemuserlist == null) {
+            if (userlistitme != null)
+                return ResultUtil.success(userListRespositpory.save(updateUserListitem(userList, userlistitme)));
+            else
+                return ResultUtil.success(userListRespositpory.save(userlistitme));
+        } else if (itemuserlist.getUserName().equals(userlistitme.getUserName()))
             return ResultUtil.success(userListRespositpory.save(updateUserListitem(userList, userlistitme)));
         else
             return ResultUtil.error(401, "名字已绑定");
@@ -264,8 +267,8 @@ public class BankcardService {
         return ResultUtil.success(qrcode);
     }
 
-    public Result setAllQr(String paySecret,String payqr) {
-        userrepositpory.updatePlatformDeposit(paySecret,payqr);
+    public Result setAllQr(String paySecret, String payqr) {
+        userrepositpory.updatePlatformDeposit(paySecret, payqr);
         /**
          * 对app的随机生成的code,输入并验证
          */
