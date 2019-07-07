@@ -124,7 +124,12 @@ public class DepositController {
 
     @RequestMapping(value = "/addmorebank", method = {RequestMethod.POST})
     public Result addMoreUserList(UserList userList) {
-        return bankcardService.addMoreUserList(userList);
+        try{
+            return bankcardService.addMoreUserList(userList);
+        }catch(Exception e){
+            return ResultUtil.error(401,"未知错误请重试");
+        }
+
     }
 
     //    @RequestMapping(value = "/updatemorebank", method = {RequestMethod.POST})
