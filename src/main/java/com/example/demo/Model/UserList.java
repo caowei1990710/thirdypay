@@ -19,6 +19,8 @@ public class UserList implements Serializable {
     @Id
     @GeneratedValue
     private int id;
+    @NotEmpty(message = "会员账号不能为空")
+    @Column(name = "user_name", unique = true)
     private String userName;
     private String realName;
     @NotEmpty(message = "银行卡号")
