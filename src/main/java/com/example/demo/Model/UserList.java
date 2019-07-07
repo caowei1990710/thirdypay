@@ -3,10 +3,7 @@ package com.example.demo.Model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.hibernate.validator.constraints.NotEmpty;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -14,11 +11,13 @@ import java.io.Serializable;
  */
 @Entity
 @JsonIgnoreProperties(ignoreUnknown = true)
+@Table(name="user_list",uniqueConstraints = {@UniqueConstraint(columnNames="user_name")})
 public class UserList implements Serializable {
     private static final long serialVersionUID = 7247714666080613264L;
     @Id
     @GeneratedValue
     private int id;
+
     @NotEmpty(message = "会员账号不能为空")
     @Column(name = "user_name", unique = true)
     private String userName;

@@ -21,6 +21,7 @@ public class PlatformDeposit {
     private String callbackurl;
     private String sign;
     private String status;
+    private String acceptDate;
 
     public int getId() {
         return id;
@@ -98,6 +99,14 @@ public class PlatformDeposit {
 
     public void setStatus(String status) {  this.status = status; }
 
+    public String getAcceptDate() {
+        return acceptDate;
+    }
+
+    public void setAcceptDate(String acceptDate) {
+        this.acceptDate = acceptDate;
+    }
+
     @Override
     public String toString() {
         return "PlatformDeposit{" +
@@ -111,6 +120,7 @@ public class PlatformDeposit {
                 ", callbackurl='" + callbackurl + '\'' +
                 ", sign='" + sign + '\'' +
                 ", status='" + status + '\'' +
+                ", acceptDate='" + acceptDate + '\'' +
                 '}';
     }
 }

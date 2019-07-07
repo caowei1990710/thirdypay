@@ -3,6 +3,7 @@ package com.example.demo.Controller;
 import com.alibaba.fastjson.JSONObject;
 import com.example.demo.Model.*;
 import com.example.demo.Service.BankcardService;
+import com.example.demo.Service.DepositService;
 import com.example.demo.Service.PlatformDepositService;
 import com.example.demo.utils.GoogleAuthenticator;
 import org.slf4j.Logger;
@@ -26,6 +27,9 @@ public class DepositController {
 
     @Autowired
     BankcardService bankcardService;
+
+    @Autowired
+    DepositService depositService;
 
     @RequestMapping(value = "/Depositlist", method = {RequestMethod.POST})
     public Result addDepositlist(@RequestBody DepositList depositList) {
@@ -235,4 +239,10 @@ public class DepositController {
     public Result login(User user) {
         return bankcardService.login(user.getUserName(), user.getPassWord());
     }
+
+    @RequestMapping(value = "/toMatch", method = {RequestMethod.GET,RequestMethod.POST})
+    public Result toMatch(@RequestParam("depositNumber") String depositNumber) {
+        return depositService.toMatch(depositNumber);
+    }
+
 }

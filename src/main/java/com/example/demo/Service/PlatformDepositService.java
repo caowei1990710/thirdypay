@@ -25,6 +25,7 @@ import java.io.InputStream;
 import java.io.Serializable;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 
@@ -69,6 +70,7 @@ public class PlatformDepositService implements Serializable {
         platformDeposit.setOrderno(orderno);
         platformDeposit.setCallbackurl(callbackurl);
         platformDeposit.setSign(sign);
+        platformDeposit.setAcceptDate(newDate());
         logger.info("platformDeposit:{}",platformDeposit.toString());
 
         List<PlatformDeposit> platformDepositList = platformDepositRespositpory.getPlatformDeposit(orderno);
@@ -198,6 +200,12 @@ public class PlatformDepositService implements Serializable {
         }else {
             return ResultUtil.success("重发成功");
         }
+    }
+
+    public String newDate() {
+        Date date = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        return sdf.format(date);
     }
 
 }

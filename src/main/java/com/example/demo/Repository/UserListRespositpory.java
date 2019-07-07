@@ -33,6 +33,9 @@ public interface UserListRespositpory extends JpaRepository<UserList, Integer>, 
     @Query(value = "select * from user_list  WHERE thirdreal_name = ?1", nativeQuery = true)
     UserList findBythirdrealName(String realname);
 
+    @Query(value = "select * from user_list  WHERE real_name = ?1 or thirdreal_name = ?1 or secondreal_name = ?1  or  secondbank_card = ?1 ", nativeQuery = true)
+    UserList getUserListByRealname(String realname);
+
     @Query(value = "select * from user_list  WHERE thirdbank_card = ?1", nativeQuery = true)
     UserList findBythirdankCard(String bankcard);
 }
