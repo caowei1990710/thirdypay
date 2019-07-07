@@ -18,4 +18,7 @@ public interface PlatformDepositRespositpory  extends JpaRepository<PlatformDepo
     @Query(value = "select * from platform_deposit  ORDER by id desc limit 2000", nativeQuery = true)
     List<PlatformDeposit> getPlatformDepositList();
 
+    @Query(value = "select * from platform_deposit t where amount = ?1 and account = ?2 and  accept_date BETWEEN  ?13 and ?4 ORDER BY accept_date DESC;", nativeQuery = true)
+    List<PlatformDeposit>  getPlatformDepositByAmountAccount(String amount,String account,String beginDate ,String endDate);
+
 }

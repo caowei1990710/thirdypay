@@ -158,10 +158,10 @@ public class BankcardService {
             if (userlistitme != null)
                 return ResultUtil.success(userListRespositpory.save(updateUserListitem(userList, userlistitme)));
             else
-                return ResultUtil.success(userListRespositpory.save(userlistitme));
-        } else if (itemuserlist.getUserName().equals(userlistitme.getUserName()))
+                return ResultUtil.success(userListRespositpory.save(userList));
+        } else if (itemuserlist.getUserName().equals(userList.getUserName())) {
             return ResultUtil.success(userListRespositpory.save(updateUserListitem(userList, userlistitme)));
-        else
+        }else {
             return ResultUtil.error(401, "名字已绑定");
 //        if (itemuserlist == null)
 //            return ResultUtil.success(userListRespositpory.save(userList));
@@ -172,6 +172,7 @@ public class BankcardService {
 //            else
 //                return ResultUtil.error(401, "名字已绑定");
 //        }
+        }
     }
 
 //    public Result updateMoreUserList(UserList userList) {

@@ -131,6 +131,7 @@ public class DepositController {
         try{
             return bankcardService.addMoreUserList(userList);
         }catch(Exception e){
+            e.printStackTrace();
             return ResultUtil.error(401,"未知错误请重试");
         }
 

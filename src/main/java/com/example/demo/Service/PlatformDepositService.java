@@ -7,10 +7,7 @@ import com.example.demo.Model.Result;
 import com.example.demo.Model.ResultUtil;
 import com.example.demo.Repository.DepositRespositpory;
 import com.example.demo.Repository.PlatformDepositRespositpory;
-import com.example.demo.utils.DESUtil;
-import com.example.demo.utils.HttpUtil;
-import com.example.demo.utils.MD5Utils;
-import com.example.demo.utils.QfpayUtil;
+import com.example.demo.utils.*;
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
 import org.slf4j.Logger;
@@ -70,7 +67,7 @@ public class PlatformDepositService implements Serializable {
         platformDeposit.setOrderno(orderno);
         platformDeposit.setCallbackurl(callbackurl);
         platformDeposit.setSign(sign);
-        platformDeposit.setAcceptDate(newDate());
+        platformDeposit.setAcceptDate(DateUitil.newDate());
         logger.info("platformDeposit:{}",platformDeposit.toString());
 
         List<PlatformDeposit> platformDepositList = platformDepositRespositpory.getPlatformDeposit(orderno);
@@ -201,11 +198,4 @@ public class PlatformDepositService implements Serializable {
             return ResultUtil.success("重发成功");
         }
     }
-
-    public String newDate() {
-        Date date = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        return sdf.format(date);
-    }
-
 }

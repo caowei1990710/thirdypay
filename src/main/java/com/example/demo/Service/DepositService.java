@@ -1,16 +1,18 @@
 package com.example.demo.Service;
 
-import com.example.demo.Model.Deposit;
-import com.example.demo.Model.Result;
-import com.example.demo.Model.ResultUtil;
-import com.example.demo.Model.UserList;
+import com.example.demo.Model.*;
 import com.example.demo.Repository.DepositRespositpory;
+import com.example.demo.Repository.PlatformDepositRespositpory;
 import com.example.demo.Repository.UserListRespositpory;
+import com.example.demo.utils.DateUitil;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.example.demo.Model.Deposit;
+
+import java.util.List;
 
 @Service
 public class DepositService {
@@ -27,6 +29,9 @@ public class DepositService {
     private PlatformDepositService platformDepositService;
 
     @Autowired
+    private PlatformDepositRespositpory platformDepositRespositpory;
+
+    @Autowired
     private UserListRespositpory userListRespositpory;
 
     public Result toMatch(String depositNumber) {
@@ -37,11 +42,18 @@ public class DepositService {
             UserList userList = userListRespositpory.getUserListByRealname(deposit.getPayAccount());
             logger.info("toMatch userList:{}:",userList);
             try{
+                List<PlatformDeposit> platformDepositLsit = platformDepositRespositpory.getPlatformDepositByAmountAccount(String.valueOf(deposit.getAmount()),deposit.getPayAccount(), DateUitil.newDateFront(-30),DateUitil.newDate());
                 if (userList != null) {
                         deposit.setUserName(userList.getUserName());
                         deposit.setPayBankCard(userList.getBankCard());
-                        deposit.setCallUrl(userList.getCallbackurl());
-                        deposit.setOrderno(userList.getOrderno());
+                        if (StringUtils.isNotEmpty(userList.getOrderno())){
+                            deposit.setCallUrl(userList.getCallbackurl());
+                            deposit.setOrderno(userList.getOrderno());
+                        }else {
+                            PlatformDeposit platformDeposit = platformDepositLsit.get(0);
+                            deposit.setCallUrl(platformDeposit.getCallbackurl());
+                            deposit.setOrderno(platformDeposit.getOrderno());
+                        }
                 }else{
                     return ResultUtil.error(401, "订单匹配失败");
                 }
