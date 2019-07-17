@@ -8,4 +8,5 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
  * Created by snsoft on 14/6/2019.
  */
 public interface proposalListRespoitory extends JpaRepository<proposalList,Integer>,JpaSpecificationExecutor<proposalList> {
+
 }

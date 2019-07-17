@@ -2,10 +2,7 @@ package com.example.demo.Service;
 
 import com.example.demo.Model.*;
 import com.example.demo.Repository.*;
-import com.example.demo.utils.GoogleAuthenticator;
-import com.example.demo.utils.HttpUtil;
-import com.example.demo.utils.MD5Utils;
-import com.example.demo.utils.QfpayUtil;
+import com.example.demo.utils.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,6 +45,8 @@ public class BankcardService {
     private NoticeRespositpory noticeRespositpory;
     @Autowired
     private PayProposalRespositpory payProposalRespositpory;
+    @Autowired
+    private PlatformDepositRespositpory platformDepositRespositpory;
 
     public Result saveDepositList(DepositList depositList) {
         for (int i = 0; i < depositList.getDepositRecords().size(); i++) {
@@ -74,7 +73,10 @@ public class BankcardService {
                         deposit.setUserName(userList.getUserName());
                         deposit.setPayBankCard(userList.getBankCard());
                         deposit.setCallUrl(userList.getCallbackurl());
-                        deposit.setOrderno(userList.getOrderno());
+                        PlatformDeposit platformDeposititem = platformDepositRespositpory.getPlatformDepositNormal(deposit.getAmount() + "", userList.getUserName(), DateUitil.newDateFront(-30), DateUitil.newDate());
+                        if (platformDeposititem != null)
+                            deposit.setOrderno(platformDeposititem.getOrderno());
+//                        deposit.setOrderno(userList.getOrderno());
                     }
 //                        username = userList.get(0).getUserName();
                     depositRepository.save(deposit);
@@ -161,7 +163,7 @@ public class BankcardService {
                 return ResultUtil.success(userListRespositpory.save(userList));
         } else if (itemuserlist.getUserName().equals(userList.getUserName())) {
             return ResultUtil.success(userListRespositpory.save(updateUserListitem(userList, userlistitme)));
-        }else {
+        } else {
             return ResultUtil.error(401, "名字已绑定");
 //        if (itemuserlist == null)
 //            return ResultUtil.success(userListRespositpory.save(userList));
