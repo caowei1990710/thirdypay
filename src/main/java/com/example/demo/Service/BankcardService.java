@@ -47,6 +47,8 @@ public class BankcardService {
     private PayProposalRespositpory payProposalRespositpory;
     @Autowired
     private PlatformDepositRespositpory platformDepositRespositpory;
+    @Autowired
+    private DepositService depositService;
 
     public Result saveDepositList(DepositList depositList) {
         for (int i = 0; i < depositList.getDepositRecords().size(); i++) {
@@ -73,12 +75,20 @@ public class BankcardService {
                         deposit.setUserName(userList.getUserName());
                         deposit.setPayBankCard(userList.getBankCard());
                         deposit.setCallUrl(userList.getCallbackurl());
-                        PlatformDeposit platformDeposititem = platformDepositRespositpory.getPlatformDepositNormal(deposit.getAmount() + "", userList.getUserName(), DateUitil.newDateFront(-30), DateUitil.newDate());
+                        PlatformDeposit platformDeposititem = platformDepositRespositpory.getPlatformDepositNormal(deposit.getAmount() + "", userList.getUserName(), DateUitil.rollMinute(deposit.getCreatTime(),-15),DateUitil.rollMinute(deposit.getCreatTime(),15));
                         if (platformDeposititem != null)
                             deposit.setOrderno(platformDeposititem.getOrderno());
 //                        deposit.setOrderno(userList.getOrderno());
                     }
 //                        username = userList.get(0).getUserName();
+
+//                    Deposit depositNew = depositService.depositMatch(userList,deposit);
+//                    depositRepository.save(depositNew);
+//                    if (platformDepositService.depositCallBack(depositNew)) {
+//                        depositNew.setState("SUCCESS");
+//                        depositRepository.save(depositNew);
+//                        platformDepositService.updateByOrderno(depositNew);
+//                    }
                     depositRepository.save(deposit);
                     if (platformDepositService.depositCallBack(deposit)) {
                         deposit.setState("SUCCESS");

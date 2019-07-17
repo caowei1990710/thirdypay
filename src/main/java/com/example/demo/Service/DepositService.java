@@ -35,29 +35,22 @@ public class DepositService {
     private UserListRespositpory userListRespositpory;
 
     public Result toMatch(String depositNumber) {
-        logger.info("toMatch depositNumber:{}:",depositNumber);
+        if (depositMatchToMatch(depositNumber)){
+            return ResultUtil.success("订单匹配成功");
+        }else {
+            return ResultUtil.error(401, "订单匹配失败");
+        }
+    }
+
+    public Boolean depositMatchToMatch(String depositNumber) {
+        logger.info("toMatch depositNumber:{}",depositNumber);
         Deposit deposit = depositRepository.findByDepositnumber(depositNumber);
-        logger.info("toMatch deposit:{}:",deposit);
+        logger.info("toMatch deposit:{}",deposit);
         if (deposit != null) {
             UserList userList = userListRespositpory.getUserListByRealname(deposit.getPayAccount());
-            logger.info("toMatch userList:{}:",userList);
+            logger.info("toMatch userList:{}",userList);
             try{
-                List<PlatformDeposit> platformDepositLsit = platformDepositRespositpory.getPlatformDepositByAmountAccount(String.valueOf(deposit.getAmount()),deposit.getPayAccount(), DateUitil.newDateFront(-30),DateUitil.newDate());
-                if (userList != null) {
-                        deposit.setUserName(userList.getUserName());
-                        deposit.setPayBankCard(userList.getBankCard());
-                        if (StringUtils.isNotEmpty(userList.getOrderno())){
-                            deposit.setCallUrl(userList.getCallbackurl());
-                            deposit.setOrderno(userList.getOrderno());
-                        }else {
-                            PlatformDeposit platformDeposit = platformDepositLsit.get(0);
-                            deposit.setCallUrl(platformDeposit.getCallbackurl());
-                            deposit.setOrderno(platformDeposit.getOrderno());
-                        }
-                }else{
-                    return ResultUtil.error(401, "订单匹配失败");
-                }
-                depositRepository.save(deposit);
+                depositRepository.save(depositMatch(userList,deposit));
                 logger.info("toMatch depositSave:{}:",deposit);
                 if (platformDepositService.depositCallBack(deposit)) {
                     deposit.setState("SUCCESS");
@@ -65,13 +58,37 @@ public class DepositService {
                     platformDepositService.updateByOrderno(deposit);
                 }
             }catch (Exception e){
-                return ResultUtil.error(401, "订单匹配失败");
+                e.printStackTrace();
+                return false;
             }
         }else {
-            return ResultUtil.error(401, "订单匹配失败");
+            logger.info("订单匹配失败没有找到相应收款记录");
+            return false;
         }
-        logger.info("toMatch success");
-        return ResultUtil.success("订单匹配成功");
+        logger.info("depositMatch success");
+        return true;
+    }
+
+    public Deposit depositMatch (UserList userList,Deposit deposit){
+        Deposit depositNew = deposit;
+        if (userList != null) {
+            List<PlatformDeposit> platformDepositLsit = platformDepositRespositpory.getPlatformDepositByAmountAccount(String.valueOf(deposit.getAmount()),deposit.getPayAccount(), DateUitil.rollMinute(deposit.getCreatTime(),-15),DateUitil.rollMinute(deposit.getCreatTime(),15));
+            logger.info("订单匹配 platformDepositLsit:{}",platformDepositLsit);
+            if (platformDepositLsit.size() == 0){
+                return depositNew;
+            }else {
+                depositNew.setUserName(userList.getUserName());
+                depositNew.setPayBankCard(userList.getBankCard());
+                PlatformDeposit platformDeposit = platformDepositLsit.get(0);
+                depositNew.setCallUrl(platformDeposit.getCallbackurl());
+                depositNew.setOrderno(platformDeposit.getOrderno());
+                logger.info("最终完整的回调订单deposit:{}" + depositNew);
+                return depositNew;
+            }
+        }else{
+            logger.info("订单匹配失败 userList为空");
+            return depositNew;
+        }
     }
 
 }
